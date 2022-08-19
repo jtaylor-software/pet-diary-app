@@ -8,9 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var isShowingOnboarding = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Text("This will list user pets.")
+                .navigationTitle("Welcome, Jeremy!")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                           isShowingOnboarding = true
+                        } label: {
+                            Image(systemName: "pawprint.circle")
+                                .resizable()
+                                .frame(width: CGFloat(Constants.General.OnboardingImageFrame.rawValue), height: CGFloat(Constants.General.OnboardingImageFrame.rawValue))
+                                .padding(.top)
+                        }
+
+                    }
+                }
+        }
+        
+        .sheet(isPresented: $isShowingOnboarding) {
+            OnboardingView()
+        }
     }
 }
 
