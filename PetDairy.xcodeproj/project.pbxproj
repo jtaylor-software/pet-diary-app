@@ -13,6 +13,7 @@
 		8F86D30528AFEBAC006436AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F86D30428AFEBAC006436AC /* Preview Assets.xcassets */; };
 		8F86D31028AFEDCB006436AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86D30F28AFEDCB006436AC /* Constants.swift */; };
 		8F86D31228AFEE0E006436AC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86D31128AFEE0E006436AC /* OnboardingView.swift */; };
+		8FB5CFC728B00EC60049ADC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5CFC628B00EC60049ADC8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		8F86D30428AFEBAC006436AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F86D30F28AFEDCB006436AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F86D31128AFEE0E006436AC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8FB5CFC628B00EC60049ADC8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 		8F86D2F128AFEBAA006436AC = {
 			isa = PBXGroup;
 			children = (
+				8FB5CFC628B00EC60049ADC8 /* README.md */,
 				8F86D2FC28AFEBAA006436AC /* PetDairy */,
 				8F86D2FB28AFEBAA006436AC /* Products */,
 			);
@@ -163,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FB5CFC728B00EC60049ADC8 /* README.md in Resources */,
 				8F86D30528AFEBAC006436AC /* Preview Assets.xcassets in Resources */,
 				8F86D30228AFEBAC006436AC /* Assets.xcassets in Resources */,
 			);
