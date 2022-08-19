@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
+
+
 struct HomeView: View {
     @State private var isShowingOnboarding = false
     
     var body: some View {
+        WelcomeView()
         NavigationView {
             Text("This will list user pets.")
                 .navigationTitle("Welcome, Jeremy!")
