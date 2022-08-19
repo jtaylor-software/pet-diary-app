@@ -17,7 +17,6 @@ struct HomeView: View {
         NavigationView {
             Text("This will list user pets.")
                 .navigationTitle("Welcome, Jeremy!")
-            WelcomeView()
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
@@ -31,6 +30,7 @@ struct HomeView: View {
 
                     }
                 }
+            WelcomeView()
         }
         
         .sheet(isPresented: $isShowingOnboarding) {
