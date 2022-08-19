@@ -17,5 +17,6 @@ enum Constants {
     enum Onboarding: String {
         case lightModeCatImage = "lightModeCatOnboarding"
         case darkModeCatImage = "darkModeCatOnboarding"
+        case circleImage = "circle"
     }
 }
