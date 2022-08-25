@@ -8,15 +8,13 @@
 import Foundation
 
 enum Constants {
-    enum General: Int {
-        case OnboardingImageFrame = 48
-        
-        
-    }
-    
-    enum Onboarding: String {
-        case lightModeCatImage = "lightModeCatOnboarding"
-        case darkModeCatImage = "darkModeCatOnboarding"
-        case circleImage = "circle"
-    }
+	enum General: Int {
+		case OnboardingImageFrame = 48
+	}
+	
+	enum Onboarding: String {
+		case lightModeCatImage = "lightModeCatOnboarding"
+		case darkModeCatImage = "darkModeCatOnboarding"
+		case circleImage = "circle"
+	}
 }

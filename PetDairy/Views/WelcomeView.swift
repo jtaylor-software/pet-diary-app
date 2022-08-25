@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    var body: some View {
-        VStack {
-            Text("Welcome to Pet Diary!")
-                .font(.largeTitle)
-            
-            Text("Please swipe from the left edge to show the left-hand menu.")
-                .foregroundColor(.secondary)
-        }
-        
-    }
+	var body: some View {
+		VStack {
+			Text("Welcome to Pet Diary!")
+				.font(.largeTitle)
+			
+			Text("Please swipe from the left edge to show the left-hand menu.")
+				.foregroundColor(.secondary)
+		}
+		
+	}
 }
 
 struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
-    }
+	static var previews: some View {
+		WelcomeView()
+	}
 }
