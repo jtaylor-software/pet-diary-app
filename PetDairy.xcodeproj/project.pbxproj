@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F014E1628B81C8E00795618 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F014E1528B81C8E00795618 /* Pet.swift */; };
 		8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */; };
 		8F86D30028AFEBAA006436AC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86D2FF28AFEBAA006436AC /* HomeView.swift */; };
 		8F86D30228AFEBAC006436AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F86D30128AFEBAC006436AC /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F014E1428B809D000795618 /* Week2 Homework Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Week2 Homework Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDairyApp.swift; sourceTree = "<group>"; };
 		8F86D2FF28AFEBAA006436AC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		8F86D30B28AFED3C006436AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8F014E1528B81C8E00795618 /* Pet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +103,7 @@
 			children = (
 				8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */,
 				8F86D30128AFEBAC006436AC /* Assets.xcassets */,
+				8F014E1428B809D000795618 /* Week2 Homework Playground.playground */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */,
 				8F86D30028AFEBAA006436AC /* HomeView.swift in Sources */,
 				8F86D31228AFEE0E006436AC /* OnboardingView.swift in Sources */,
+				8F014E1628B81C8E00795618 /* Pet.swift in Sources */,
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
 			);
