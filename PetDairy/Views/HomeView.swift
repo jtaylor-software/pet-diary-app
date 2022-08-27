@@ -52,5 +52,15 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
 		static var previews: some View {
 				HomeView()
+				HomeView()
+						.previewLayout(.fixed(width: 568, height: 320))
+				HomeView()
+						.preferredColorScheme(.dark)
+				HomeView()
+						.preferredColorScheme(.dark)
+						.previewLayout(.fixed(width: 568, height: 320))
+				HomeView()
+						.preferredColorScheme(.dark)
+						.previewLayout(.fixed(width: 926, height: 428))
 		}
 }
