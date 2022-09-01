@@ -18,7 +18,7 @@ struct HomeView: View {
 								VStack(alignment: .leading) {
 										HStack {
 												Text(pet.name)
-												Text("Favoite toy: \(pet.favoriteToy ?? "Anything")")
+												Text("Favorite toy: \(pet.favoriteToy ?? "Anything")")
 										}
 								}
 						}
