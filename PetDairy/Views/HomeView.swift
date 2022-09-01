@@ -8,37 +8,59 @@
 import SwiftUI
 
 struct HomeView: View {
-	@State private var isShowingOnboarding = false
-	
-	var body: some View {
-		NavigationView {
-			Text("This will list user pets.")
-				.navigationTitle("Welcome, Jeremy!")
-				.toolbar {
-					ToolbarItem(placement: .navigationBarTrailing) {
-						Button {
-							isShowingOnboarding = true
-						} label: {
-							Image(systemName: "pawprint.circle")
-								.resizable()
-								.frame(width: CGFloat(Constants.General.OnboardingImageFrame.rawValue), height: CGFloat(Constants.General.OnboardingImageFrame.rawValue))
-								.padding(.top)
+		@State private var isShowingOnboarding = false
+		@State private var pet = Pet()
+		
+		var body: some View {
+				NavigationView {
+						ForEach(pet.pets) { pet in
+								
+								VStack(alignment: .leading) {
+										HStack {
+												Text(pet.name)
+												Text("Favorite toy: \(pet.favoriteToy ?? "Anything")")
+										}
+								}
 						}
 						
-					}
+						.navigationTitle("Welcome, Jeremy!")
+						.toolbar {
+								ToolbarItem(placement: .navigationBarTrailing) {
+										Button {
+												isShowingOnboarding = true
+										} label: {
+												Image(systemName: "pawprint.circle")
+														.resizable()
+														.frame(width: CGFloat(Constants.General.OnboardingImageFrame.rawValue), height: CGFloat(Constants.General.OnboardingImageFrame.rawValue))
+														.padding(.top)
+										}
+										
+								}
+						}
+						WelcomeView()
 				}
-			WelcomeView()
+				.onAppear {
+						pet.addExamplePets()
+				}
+				
+				.sheet(isPresented: $isShowingOnboarding) {
+						OnboardingView()
+				}
 		}
-		
-		.sheet(isPresented: $isShowingOnboarding) {
-			OnboardingView()
-		}
-		
-	}
 }
 
 struct HomeView_Previews: PreviewProvider {
-	static var previews: some View {
-		HomeView()
-	}
+		static var previews: some View {
+				HomeView()
+				HomeView()
+						.previewLayout(.fixed(width: 568, height: 320))
+				HomeView()
+						.preferredColorScheme(.dark)
+				HomeView()
+						.preferredColorScheme(.dark)
+						.previewLayout(.fixed(width: 568, height: 320))
+				HomeView()
+						.preferredColorScheme(.dark)
+						.previewLayout(.fixed(width: 926, height: 428))
+		}
 }

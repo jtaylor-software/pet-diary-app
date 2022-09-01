@@ -23,5 +23,12 @@ struct WelcomeView: View {
 struct WelcomeView_Previews: PreviewProvider {
 	static var previews: some View {
 		WelcomeView()
+			WelcomeView()
+					.previewLayout(.fixed(width: 568, height: 320))
+			WelcomeView()
+					.preferredColorScheme(.dark)
+			WelcomeView()
+					.preferredColorScheme(.dark)
+					.previewLayout(.fixed(width: 568, height: 320))
 	}
 }
