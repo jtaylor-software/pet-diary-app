@@ -1,6 +1,6 @@
 import UIKit
 
-// Assignment 1
+// MARK: - Assignment 1
 
 var itemPrices = [25.0, 3.50, 2.25, 32.50, 7, 10, 12.25]
 
@@ -11,7 +11,7 @@ func totalAmountAfterDiscount(totalAmount: Double, discountPercentage: Double) -
 
 totalAmountAfterDiscount(totalAmount: 50, discountPercentage: 5)
 
-// Assignment 2
+// MARK: - Assignment 2
 
 func totalAmountAfterDiscount(totalAmount: Double, defaultDiscountPercentage: Double = 10.0) -> Double {
 		let discountedAmount = totalAmount * defaultDiscountPercentage / 100
@@ -20,7 +20,7 @@ func totalAmountAfterDiscount(totalAmount: Double, defaultDiscountPercentage: Do
 
 totalAmountAfterDiscount(totalAmount: 50)
 
-// Assignment 3
+// MARK: - Assignment 3
 
 typealias Discount = (Double, String) -> Double
 
@@ -49,7 +49,7 @@ var discount = discountForSeason
 printDiscount(discountForSeason, 50, "Newyear")
 
 
-// Assignment 4
+// MARK: - Assignment 4
 
 let calculateDiscount = { (totalAmount: Double, discountType: Double) in
 		let discountedAmount = totalAmount * discountType / 100
@@ -60,12 +60,12 @@ calculateDiscount(50, 20)
 
 print("-----------------------------------\n")
 
-// Assignment 5
+// MARK: - Assignment 5
 
 itemPrices.map {print($0 + ($0 * 0.5))}
 
 
-// Assignment 6
+// MARK: - Assignment 6
 
 let discountTypes = ["Default": 5, "Thanksgiving": 10, "Christmas": 15, "Newyear": 20]
 let sortedDiscounts = discountTypes.sorted { (first, second) -> Bool in
@@ -75,7 +75,7 @@ let sortedDiscounts = discountTypes.sorted { (first, second) -> Bool in
 print("-----------------------------------\n")
 print(sortedDiscounts)
 
-// Assignment 7
+// MARK: - Assignment 7
 
 enum DiscountType: Double, Comparable, CaseIterable {
 		case standard = 5
@@ -106,7 +106,7 @@ printDiscount(for: .newyear)
 print("-----------------------------------\n")
 
 
-// Assignment 8
+// MARK: - Assignment 8
 
 struct Inventory {
 		var itemPrices = [25.0]
@@ -116,7 +116,7 @@ struct Inventory {
 				return totalAmountAfterDiscount(totalAmount: itemPrices[0], discountPercentage: 15)
 		}
 		
-		// Assigment 9
+		// MARK: - Assigment 9
 		lazy var maximumDiscount: Double = {
 				for value in DiscountType.allCases {
 						discountPercentages.append(value.rawValue)
@@ -124,7 +124,7 @@ struct Inventory {
 				return discountPercentages.max() ?? DiscountType.standard.rawValue
 		}()
 		
-		// Assignment 10
+		// MARK: - Assignment 10
 		
 		func caculateTotalAmountAfterDiscount(_ totalAmount: Double, _ discountType: DiscountType) -> Double {
 				let discount: Double
@@ -148,7 +148,7 @@ print(inventory.currentDiscountedAmount)
 print("Maximum Discount: \(Int(inventory.maximumDiscount))%")
 print("Total amount after discount: \(inventory.caculateTotalAmountAfterDiscount(50, .newyear))")
 
-// Assignment 11
+// MARK: - Assignment 11
 
 protocol Discount2 {
 		var discountType: DiscountType { get }
@@ -177,7 +177,7 @@ class TestClass: Discount2 {
 		}
 }
 
-// Assignment 12
+// MARK: - Assignment 12
 
 extension Double {
 		func roundToInt() -> Int {
@@ -190,3 +190,16 @@ test.calculateDiscount(totalAmount: 54.30, discountType: .newyear).roundToInt()
 
 var a = 15.3.roundToInt()
 var b = 15.5.roundToInt()
+
+// MARK: - Nice to have NSAttributedString
+
+let string = "Four score and seven years ago"
+let attributedString = NSMutableAttributedString(string: string)
+attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 0, length: 4))
+attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 24), range: NSRange(location: 0, length: 4))
+attributedString.addAttribute(.foregroundColor, value: UIColor.green, range: NSRange(location: 5, length: 5))
+attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 11, length: 3))
+attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 24), range: NSRange(location: 15, length: 5))
+attributedString.addAttribute(.foregroundColor, value: UIColor.green, range: NSRange(location: 15, length: 5))
+attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 20, length: 6))
+attributedString.addAttribute(.foregroundColor, value: UIColor.green, range: NSRange(location: 26, length: 4))
