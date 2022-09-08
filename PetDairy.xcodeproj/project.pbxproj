@@ -64,12 +64,12 @@
 		8F86D2FC28AFEBAA006436AC /* PetDairy */ = {
 			isa = PBXGroup;
 			children = (
+				8FF587AB28CA5E6C00452137 /* Playgrounds */,
 				8F86D30E28AFEDAF006436AC /* Helpers */,
 				8F86D30D28AFED8A006436AC /* App */,
 				8F86D30C28AFED4B006436AC /* Views */,
 				8F86D30B28AFED3C006436AC /* Models */,
 				8F86D30328AFEBAC006436AC /* Preview Content */,
-				8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */,
 			);
 			path = PetDairy;
 			sourceTree = "<group>";
@@ -105,7 +105,6 @@
 			children = (
 				8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */,
 				8F86D30128AFEBAC006436AC /* Assets.xcassets */,
-				8F014E1428B809D000795618 /* Week2 Homework Playground.playground */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -116,6 +115,15 @@
 				8F86D30F28AFEDCB006436AC /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FF587AB28CA5E6C00452137 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */,
+				8F014E1428B809D000795618 /* Week2 Homework Playground.playground */,
+			);
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
