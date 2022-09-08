@@ -21,6 +21,7 @@
 /* Begin PBXFileReference section */
 		8F014E1428B809D000795618 /* Week2 Homework Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Week2 Homework Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Week 3 Homework Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDairyApp.swift; sourceTree = "<group>"; };
 		8F86D2FF28AFEBAA006436AC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 				8F86D30C28AFED4B006436AC /* Views */,
 				8F86D30B28AFED3C006436AC /* Models */,
 				8F86D30328AFEBAC006436AC /* Preview Content */,
+				8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */,
 			);
 			path = PetDairy;
 			sourceTree = "<group>";

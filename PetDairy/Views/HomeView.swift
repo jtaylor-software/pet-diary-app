@@ -41,6 +41,8 @@ struct HomeView: View {
 				}
 				.onAppear {
 						pet.addExamplePets()
+						pet.addExampleItemPrices()
+						
 				}
 				
 				.sheet(isPresented: $isShowingOnboarding) {
