@@ -23,15 +23,6 @@ struct HomeView: View {
 								}
 						}
 						
-						// MARK: - Assignment 13 test code
-						
-						ForEach(pet.itemPrices, id: \.self) { item in
-								VStack(alignment: .leading) {
-										Text("Total amount after discount $\(pet.totalAmountAfterDiscount(totalAmount: item).roundToInt())")
-								}
-						}
-						
-						
 						.navigationTitle("Welcome, Jeremy!")
 						.toolbar {
 								ToolbarItem(placement: .navigationBarTrailing) {
