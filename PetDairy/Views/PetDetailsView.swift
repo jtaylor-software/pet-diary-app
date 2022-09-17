@@ -16,12 +16,21 @@ struct PetDetailsView: View {
 				GeometryReader { geo in
 						HStack {
 								VStack {
-										Image(pet.imageString!)
-												.resizable()
-												.scaledToFit()
-												.clipShape(Circle())
-												.frame(width: geo.size.width * 0.65)
-										
+										ZStack(alignment: .bottomLeading) {
+												Image(pet.imageString!)
+																.resizable()
+																.scaledToFit()
+																.clipShape(Circle())
+														.frame(width: geo.size.width * 0.65)
+												
+												Text("Birthday: \(pet.birthday)")
+														.background(.black.opacity(0.8))
+														.font(.callout.bold())
+														.foregroundColor(.white)
+														.frame(width: geo.size.width * 0.65, height: geo.size.height * 0.05)
+														
+										}
+														
 										Button {
 												if favorites.contains(pet) {
 														favorites.remove(pet)
@@ -32,6 +41,7 @@ struct PetDetailsView: View {
 												Text(favorites.contains(pet) ? "Remove favorite" : "Favorite")
 														.padding()
 										}
+										
 								}
 								.padding(.leading)
 								
@@ -51,5 +61,6 @@ struct PetDetailsView: View {
 struct PetDetailsView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetDetailsView(pet: Pet.examplePet)
+						.environmentObject(Favorites())
 		}
 }

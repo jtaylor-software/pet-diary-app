@@ -40,6 +40,7 @@ struct Pet: Identifiable, Hashable, Codable {
 		var favoriteToy: String?
 		let imageString: String?
 		var age: Int
+		let birthday: String
 		var trait: String
 		
 		var pets = [Pet]()
@@ -47,16 +48,17 @@ struct Pet: Identifiable, Hashable, Codable {
 		var itemPrices: [Double] = []
 		
 		
-		init(name: String = "Tom", type :PetType = .cat, favoriteToy: String? = nil, imageString: String? = nil, age: Int = 1, trait: String = "Cute") {
+		init(name: String = "Tom", type :PetType = .cat, favoriteToy: String? = nil, imageString: String? = nil, age: Int = 1, birthday: String = "", trait: String = "Cute") {
 				self.name = name
 				self.type = type
 				self.favoriteToy = favoriteToy
 				self.imageString = imageString
 				self.age = age
+				self.birthday = birthday
 				self.trait = trait
 		}
 		
-		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 16, trait: "Loveable and lazy.")
+		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 16, birthday: "8/13/2013", trait: "Loveable and lazy.")
 		
 		mutating func addPet(_ pet: Pet) {
 				pets.append(pet)
@@ -75,12 +77,12 @@ struct Pet: Identifiable, Hashable, Codable {
 		mutating func addExamplePets() {
 				if pets.isEmpty {
 						let pets = [
-								Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, trait: "Loveable and lazy."),
-								Pet(name: "Opal", type: .cat, favoriteToy: nil, imageString: "opal", age: 6, trait: "An energetic destroyer of all things!"),
-								Pet(name: "Kitty", type: .cat, favoriteToy: "Laser Pointer", imageString: "kitty", age: 16, trait: "The eater of treats."),
-								Pet(name: "Shinn", type: .cat, favoriteToy: nil, imageString: "shinn", age: 4, trait: "A cuddle bug"),
-								Pet(name: "Abbie", type: .dog, favoriteToy: "Ball", imageString: "abbie", age: 5, trait: "A lover of snow."),
-								Pet(name: "Rhea", type: .dog, favoriteToy: "Rope", imageString: "rhea", age: 5, trait: "Exciteable!")
+								Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy."),
+								Pet(name: "Opal", type: .cat, favoriteToy: nil, imageString: "opal", age: 6, birthday: "9/1/2016", trait: "An energetic destroyer of all things!"),
+								Pet(name: "Kitty", type: .cat, favoriteToy: "Laser Pointer", imageString: "kitty", age: 16,birthday: "6/1/1997", trait: "The eater of treats."),
+								Pet(name: "Shinn", type: .cat, favoriteToy: nil, imageString: "shinn", age: 4,birthday: "5/4/2018", trait: "A cuddle bug"),
+								Pet(name: "Abbie", type: .dog, favoriteToy: "Ball", imageString: "abbie", age: 5,birthday: "7/6/2017", trait: "A lover of snow."),
+								Pet(name: "Rhea", type: .dog, favoriteToy: "Rope", imageString: "rhea", age: 5,birthday: "4/3/2017", trait: "Exciteable!")
 						]
 						
 						for pet in pets {
