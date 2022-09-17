@@ -11,7 +11,7 @@ import SwiftUI
 struct PetDairyApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            PetTabView()
         }
     }
 }

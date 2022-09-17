@@ -32,16 +32,6 @@ struct OnboardingView: View {
 								Text("Add images of your pets to a photo gallery.")
 								Text("See a list and images of your pets friends.")
 						}
-						
-						
-						Button {
-								dismiss()
-						} label: {
-								Text("Got It!")
-										.clipShape(Capsule())
-										.padding(15)
-						}
-						
 				}
 		}
 }
