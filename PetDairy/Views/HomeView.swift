@@ -13,12 +13,7 @@ struct HomeView: View {
 		var body: some View {
 				NavigationView {
 						List(pet.pets) { pet in
-								NavigationLink {
-										PetDetailView(pet: pet)
-								} label: {
-										Text(pet.name)
-										
-								}
+								PetListView(pet: pet)
 
 						}
 						
@@ -47,3 +42,4 @@ struct HomeView_Previews: PreviewProvider {
 						.previewLayout(.fixed(width: 926, height: 428))
 		}
 }
+

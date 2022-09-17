@@ -10,12 +10,15 @@ import SwiftUI
 struct PetDetailView: View {
 		let pet: Pet
     var body: some View {
-				Text("Pet Detail View \(pet.name)")
+				NavigationView {
+						PetDetailsView(pet: pet)
+				}
     }
 }
 
 struct PetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-				PetDetailView(pet:(Pet(name: "Angel", type: .cat, favoriteToy: "String")))
+				PetDetailView(pet: Pet.examplePet)
     }
 }
+
