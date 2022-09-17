@@ -14,22 +14,13 @@ struct PetDetailsView: View {
 		
 		var body: some View {
 				GeometryReader { geo in
-						HStack {
+						HStack(spacing: 20) {
 								VStack {
-										ZStack(alignment: .bottomLeading) {
 												Image(pet.imageString!)
 																.resizable()
 																.scaledToFit()
-																.clipShape(Circle())
-														.frame(width: geo.size.width * 0.65)
-												
-												Text("Birthday: \(pet.birthday)")
-														.background(.black.opacity(0.8))
-														.font(.callout.bold())
-														.foregroundColor(.white)
-														.frame(width: geo.size.width * 0.65, height: geo.size.height * 0.05)
-														
-										}
+																.frame(width: geo.size.width * 0.45, alignment: .bottomTrailing)
+														.clipShape(Circle())
 														
 										Button {
 												if favorites.contains(pet) {
