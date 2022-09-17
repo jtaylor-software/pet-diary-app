@@ -13,8 +13,8 @@ import Foundation
  To avoid Homework confusion I'll use a single struct for this week
  */
 
-struct Pet: Identifiable {
-		enum PetType: String {
+struct Pet: Identifiable, Hashable, Codable {
+		enum PetType: String, Codable {
 				case cat, dog
 		}
 		
@@ -34,7 +34,7 @@ struct Pet: Identifiable {
 						return lhs.rawValue < rhs.rawValue
 				}
 		}
-		let id = UUID()
+		var id = UUID()
 		let name: String
 		let type: PetType
 		var favoriteToy: String?
@@ -88,11 +88,6 @@ struct Pet: Identifiable {
 						}
 				}
 				
-		}
-		
-		static func favorite(_ pet: Pet) {
-				favorites.append(pet)
-				print(favorites)
 		}
 		
 		mutating func addExampleItemPrices() {

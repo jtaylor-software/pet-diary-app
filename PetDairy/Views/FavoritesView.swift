@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct FavoritesView: View {
+		@EnvironmentObject var favorites: Favorites
     var body: some View {
-				List(Pet.favorites) { pet in
-						PetListView(pet: pet)
+				NavigationView {
+						List(favorites.pets) { pet in
+								PetListView(pet: pet)
+						}
+						.navigationTitle("Favorite Pets")
 				}
     }
 }

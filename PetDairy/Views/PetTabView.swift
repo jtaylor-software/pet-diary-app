@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PetTabView: View {
 		@AppStorage("PetDairyCurrentTab") var selectedTab = 1
+		@EnvironmentObject var favorites: Favorites
 		
 		var body: some View {
 				TabView(selection: $selectedTab) {
@@ -33,7 +34,7 @@ struct PetTabView: View {
 										
 								}
 								.tag(2)
-								.badge(4)
+								.badge(favorites.pets.count)
 				}
 		}
 }

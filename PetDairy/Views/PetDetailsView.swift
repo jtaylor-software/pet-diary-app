@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PetDetailsView: View {
+		@EnvironmentObject var favorites: Favorites
+		
 		let pet: Pet
 		
 		var body: some View {
@@ -21,13 +23,15 @@ struct PetDetailsView: View {
 												.frame(width: geo.size.width * 0.65)
 										
 										Button {
-												Pet.favorite(pet)
+												if favorites.contains(pet) {
+														favorites.remove(pet)
+												} else {
+														favorites.add(pet)
+												}
 										} label: {
-												Text("Favorite")
+												Text(favorites.contains(pet) ? "Remove favorite" : "Favorite")
 														.padding()
 										}
-										
-										
 								}
 								.padding(.leading)
 								
@@ -40,6 +44,7 @@ struct PetDetailsView: View {
 						}
 				}
 		}
+				
 }
 
 

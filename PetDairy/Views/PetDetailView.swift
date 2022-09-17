@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PetDetailView: View {
 		let pet: Pet
-    var body: some View {
+    
+		var body: some View {
 				NavigationView {
 						PetDetailsView(pet: pet)
 				}

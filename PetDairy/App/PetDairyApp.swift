@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PetDairyApp: App {
+		@StateObject var favorites = Favorites()
+		
     var body: some Scene {
         WindowGroup {
             PetTabView()
+								.environmentObject(favorites)
         }
     }
 }
