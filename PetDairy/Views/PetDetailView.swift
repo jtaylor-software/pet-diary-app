@@ -20,6 +20,7 @@ struct PetDetailView: View {
 struct PetDetailView_Previews: PreviewProvider {
     static var previews: some View {
 				PetDetailView(pet: Pet.examplePet)
+						.environmentObject(Favorites())
     }
 }
 

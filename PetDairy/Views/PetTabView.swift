@@ -42,15 +42,20 @@ struct PetTabView: View {
 struct PetTabView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetTabView()
+						.environmentObject(Favorites())
 				PetTabView()
 						.previewLayout(.fixed(width: 568, height: 320))
+						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
+						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
+						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
+						.environmentObject(Favorites())
 		}
 }
