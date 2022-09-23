@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-		@State private var pet = Pet()
+		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
 		
 		var body: some View {
 				NavigationView {
-						List(pet.pets) { pet in
+						List(model.pets) { pet in
 								PetListView(pet: pet)
 
 						}
@@ -22,7 +22,7 @@ struct HomeView: View {
 						WelcomeView()
 				}
 				.onAppear {
-						pet.addExamplePets()
+						model.addExamplePets()
 				}
 		}
 }
@@ -30,16 +30,21 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
 		static var previews: some View {
 				HomeView()
+						.environmentObject(PetModel())
 				HomeView()
 						.previewLayout(.fixed(width: 568, height: 320))
+						.environmentObject(PetModel())
 				HomeView()
 						.preferredColorScheme(.dark)
+						.environmentObject(PetModel())
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
+						.environmentObject(PetModel())
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
+						.environmentObject(PetModel())
 		}
 }
 

@@ -51,7 +51,7 @@ struct PetDetailsView: View {
 
 struct PetDetailsView_Previews: PreviewProvider {
 		static var previews: some View {
-				PetDetailsView(pet: Pet.examplePet)
+				PetDetailsView(pet: PetModel.examplePet)
 						.environmentObject(Favorites())
 		}
 }

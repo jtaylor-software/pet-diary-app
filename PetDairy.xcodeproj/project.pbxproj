@@ -22,6 +22,7 @@
 		8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4255C28D50E9300FECC9C /* PetDetailView.swift */; };
 		8FB5CFC728B00EC60049ADC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5CFC628B00EC60049ADC8 /* README.md */; };
 		8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */; };
+		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8FB4255C28D50E9300FECC9C /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		8FB5CFC628B00EC60049ADC8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8F014E1528B81C8E00795618 /* Pet.swift */,
+				8FFE885928DD2C8E0059FAC7 /* PetModel.swift */,
 				8FB35AB828D64FC8004C4F08 /* Favorites.swift */,
 			);
 			path = Models;
@@ -225,6 +228,7 @@
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
 				8FB35AB928D64FC8004C4F08 /* Favorites.swift in Sources */,
+				8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */,
 				8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */,
 				8F5C08F228D62F49002FDB95 /* FavoritesView.swift in Sources */,
 			);

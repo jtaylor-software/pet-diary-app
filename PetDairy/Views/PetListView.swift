@@ -29,6 +29,6 @@ struct PetListView: View {
 
 struct PetListView_Previews: PreviewProvider {
     static var previews: some View {
-				PetListView(pet: Pet.examplePet)
+				PetListView(pet: PetModel.examplePet)
     }
 }
