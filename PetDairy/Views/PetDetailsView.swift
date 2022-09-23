@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PetDetailsView: View {
-		@EnvironmentObject var favorites: Favorites
+		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
 		
 		let pet: Pet
 		
@@ -23,13 +23,13 @@ struct PetDetailsView: View {
 														.clipShape(Circle())
 														
 										Button {
-												if favorites.contains(pet) {
-														favorites.remove(pet)
+												if model.favoritesContains(pet) {
+														model.removeFavorite(pet)
 												} else {
-														favorites.add(pet)
+														model.addFavorite(pet)
 												}
 										} label: {
-												Text(favorites.contains(pet) ? "Remove favorite" : "Favorite")
+												Text(model.favoritesContains(pet) ? "Remove favorite" : "Favorite")
 														.padding()
 										}
 										
@@ -52,6 +52,6 @@ struct PetDetailsView: View {
 struct PetDetailsView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetDetailsView(pet: PetModel.examplePet)
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
 		}
 }

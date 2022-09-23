@@ -10,7 +10,6 @@ import SwiftUI
 struct PetTabView: View {
 		@AppStorage("PetDairyCurrentTab") var selectedTab = 1
 		@EnvironmentObject var model: PetModel
-		@EnvironmentObject var favorites: Favorites
 		
 		var body: some View {
 				TabView(selection: $selectedTab) {
@@ -35,7 +34,7 @@ struct PetTabView: View {
 										
 								}
 								.tag(2)
-								.badge(favorites.pets.count)
+								.badge(model.favoritePets.count)
 				}
 		}
 }
@@ -44,24 +43,19 @@ struct PetTabView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetTabView()
 						.environmentObject(PetModel())
-						.environmentObject(Favorites())
 				PetTabView()
 						.previewLayout(.fixed(width: 568, height: 320))
 						.environmentObject(PetModel())
-						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.environmentObject(PetModel())
-						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
 						.environmentObject(PetModel())
-						.environmentObject(Favorites())
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
 						.environmentObject(PetModel())
-						.environmentObject(Favorites())
 		}
 }

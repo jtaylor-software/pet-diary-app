@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FavoritesView: View {
-		@EnvironmentObject var favorites: Favorites
+		@EnvironmentObject var model: PetModel
     var body: some View {
 				NavigationView {
-						List(favorites.pets) { pet in
+						List(model.favoritePets) { pet in
 								PetListView(pet: pet)
 						}
 						.navigationTitle("Favorite Pets")
@@ -22,20 +22,20 @@ struct FavoritesView: View {
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
 				FavoritesView()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
 				FavoritesView()
 						.preferredColorScheme(.dark)
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
 				FavoritesView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
 				FavoritesView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(Favorites())
+						.environmentObject(PetModel())
     }
 }

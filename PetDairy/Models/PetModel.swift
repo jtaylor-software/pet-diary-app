@@ -14,8 +14,13 @@ import Foundation
 @MainActor
 class PetModel: ObservableObject {
 		@Published private(set) var pets: [Pet] = []
+		@Published private (set) var favoritePets: [Pet] = []
 		
 		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 16, birthday: "8/13/2013", trait: "Loveable and lazy.")
+		
+		init() {
+				loadFavorites()
+		}
 		
 		private func addPet(_ pet: Pet) {
 				pets.append(pet)
@@ -37,5 +42,57 @@ class PetModel: ObservableObject {
 						}
 				}
 				
+		}
+		
+		func favoritesContains(_ pet: Pet) -> Bool {
+				favoritePets.contains(pet)
+		}
+		
+		func addFavorite(_ pet: Pet) {
+				objectWillChange.send()
+				favoritePets.insert(pet, at: 0)
+				saveFavorites()
+		}
+		
+		func removeFavorite(_ pet: Pet) {
+				guard let index = favoritePets.firstIndex(of: pet) else { return }
+				favoritePets.remove(at: index)
+				objectWillChange.send()
+				
+				saveFavorites()
+		}
+		
+		func getDocumentsDirectory() -> URL {
+				// find all possible documents directories for this user
+				let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+				// just send back the first one, which ought to be the only one
+				return paths[0]
+		}
+		
+		func loadFavorites() {
+				// Memento pattern
+				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
+				do {
+					let jsonData = try Data(contentsOf: url)
+						let favorites = try JSONDecoder().decode([Pet].self, from: jsonData)
+						favoritePets = favorites
+				} catch {
+						print("Error loading json data.")
+				}
+		}
+		
+		func saveFavorites() {
+				/* Refactor save method to write a plist to user documents directory.
+				 Memento pattern
+				 */
+				
+				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
+				do {
+						let savedData =	try JSONEncoder().encode(favoritePets)
+						try savedData.write(to: url)
+				} catch {
+						print("Error saving json data")
+				}
 		}
 }
