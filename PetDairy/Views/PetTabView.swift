@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PetTabView: View {
+		// Singleton pattern as AppStorage is a wrapper for UserDefaults
 		@AppStorage("PetDairyCurrentTab") var selectedTab = 1
 		@EnvironmentObject var model: PetModel
 		

@@ -12,7 +12,7 @@ import Foundation
  */
 
 @MainActor
-class PetModel: ObservableObject {
+class PetModel: ObservableObject { // Observer pattern
 		@Published private(set) var pets: [Pet] = []
 		@Published private (set) var favoritePets: [Pet] = []
 		
