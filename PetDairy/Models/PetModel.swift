@@ -16,7 +16,7 @@ class PetModel: ObservableObject { // Observer pattern
 		@Published private(set) var pets: [Pet] = []
 		@Published private (set) var favoritePets: [Pet] = []
 		
-		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 16, birthday: "8/13/2013", trait: "Loveable and lazy.")
+		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
 		
 		init() {
 				loadFavorites()
