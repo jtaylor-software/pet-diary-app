@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SplashScreen: View {
-		@State var emojiOffset: CGFloat = -1000
-		@State var resetEmojiAnimation = true
-		@State var emojis = Emojis.previewData
+		@State private var emojiOffset: CGFloat = -1000
+		@State private var resetEmojiAnimation = false
+		@State private var emojis = Emojis.previewData
+		@State private var isActive = false
 		
 		@EnvironmentObject var model: PetModel
 		
@@ -20,36 +21,45 @@ struct SplashScreen: View {
 								.font(.largeTitle)
 								.fontWeight(.bold)
 						VStack {
-								ForEach(emojis) { emoji in
-										Text(emoji.emoji)
-												.font(.largeTitle)
-												.rotationEffect(.degrees(emoji.rotation))
-												.offset(x: emoji.x, y: emojiOffset)
-												.onAppear() {
-														Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
-																if (emojiOffset >= 400) {
-																		if (resetEmojiAnimation) {
-																				Timer.scheduledTimer(withTimeInterval: 1, repeats: false) {_ in
-																						emojiOffset = 0
-																						resetEmojiAnimation.toggle()
+								if isActive {
+										PetTabView()
+								} else {
+										ForEach(emojis) { emoji in
+												Text(emoji.emoji)
+														.font(.largeTitle)
+														.rotationEffect(.degrees(emoji.rotation))
+														.offset(x: emoji.x, y: emojiOffset)
+														.onAppear() {
+																Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
+																		if (emojiOffset >= 400) {
+																				if (resetEmojiAnimation) {
+																						Timer.scheduledTimer(withTimeInterval: 1, repeats: false) {_ in
+																								emojiOffset = 0
+																								resetEmojiAnimation.toggle()
+																						}
+																						resetEmojiAnimation = false
+																						
 																				}
-																				resetEmojiAnimation = false
-																				
+																		}
+																		withAnimation(.easeInOut(duration: 0.05)) {
+																				emojiOffset += 1
 																		}
 																}
-																withAnimation(.easeInOut(duration: 0.05)) {
-																		emojiOffset += 1
-																}
 														}
-												}
+										}
 								}
 						}
 						.onAppear {
+								DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+										withAnimation {
+												self.isActive = true
+										}
+								}
 								Task { @MainActor in
 										model.webservice.getDataFromApi()
 										await model.webservice.getCookie()
 								}
-				}
+						}
 				}
 		}
 }
@@ -74,16 +84,16 @@ struct SplashScreen_Previews: PreviewProvider {
 						.environmentObject(PetModel())
 		}
 }
-		
-		struct Emojis: Identifiable {
-				let id = UUID()
-				let emoji: String
-				let rotation: Double
-				let x: CGFloat
-		}
-		
-		extension Emojis {
-				static let previewData: [Emojis] = [
+
+struct Emojis: Identifiable {
+		let id = UUID()
+		let emoji: String
+		let rotation: Double
+		let x: CGFloat
+}
+
+extension Emojis {
+		static let previewData: [Emojis] = [
 				Emojis(emoji: "😸", rotation: 0, x: 0),
 				Emojis(emoji: "😻", rotation: 30, x: -100),
 				Emojis(emoji: "🐶", rotation: 0, x: -50),
@@ -94,6 +104,6 @@ struct SplashScreen_Previews: PreviewProvider {
 				Emojis(emoji: "🐶", rotation: 0, x: -40),
 				Emojis(emoji: "🦆", rotation: 30, x: 90),
 				Emojis(emoji: "🐹", rotation: 0, x: 140)
-				]
-		}
+		]
+}
 
