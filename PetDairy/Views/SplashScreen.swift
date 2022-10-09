@@ -16,11 +16,7 @@ struct SplashScreen: View {
 				}
 				.onAppear {
 						Task { @MainActor in
-								do {
-										try await model.webservice.getDataFromApi()
-								} catch {
-										print(error)
-								}
+								model.webservice.getDataFromApi()
 								await model.webservice.getCookie()
 						}
 				}
