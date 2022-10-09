@@ -21,6 +21,7 @@
 		8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4255C28D50E9300FECC9C /* PetDetailView.swift */; };
 		8FB5CFC728B00EC60049ADC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5CFC628B00EC60049ADC8 /* README.md */; };
 		8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */; };
+		8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471528F22D5A006DC53E /* SplashScreen.swift */; };
 		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		8FB4255C28D50E9300FECC9C /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		8FB5CFC628B00EC60049ADC8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		8FFD471728F254CD006DC53E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +79,7 @@
 		8F86D2FC28AFEBAA006436AC /* PetDairy */ = {
 			isa = PBXGroup;
 			children = (
+				8FFD471728F254CD006DC53E /* Info.plist */,
 				8FF587AB28CA5E6C00452137 /* Playgrounds */,
 				8F86D30E28AFEDAF006436AC /* Helpers */,
 				8F86D30D28AFED8A006436AC /* App */,
@@ -106,6 +110,7 @@
 		8F86D30C28AFED4B006436AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FFD471528F22D5A006DC53E /* SplashScreen.swift */,
 				8F5C08EF28D628FE002FDB95 /* PetTabView.swift */,
 				8F86D2FF28AFEBAA006436AC /* HomeView.swift */,
 				8FB4255C28D50E9300FECC9C /* PetDetailView.swift */,
@@ -222,6 +227,7 @@
 				8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */,
 				8FB35AB528D643DD004C4F08 /* PetDetailsView.swift in Sources */,
 				8F014E1628B81C8E00795618 /* Pet.swift in Sources */,
+				8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */,
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
 				8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */,
@@ -358,6 +364,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetDairy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,6 +395,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PetDairy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -17,7 +17,7 @@ struct PetDairyApp: App {
 		
 		var body: some Scene {
 				WindowGroup {
-						PetTabView()
+						SplashScreen()
 								.environmentObject(model) // Part of MV Design Pattern
 				}
 		}
