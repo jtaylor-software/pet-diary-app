@@ -21,15 +21,14 @@
 		8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4255C28D50E9300FECC9C /* PetDetailView.swift */; };
 		8FB5CFC728B00EC60049ADC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5CFC628B00EC60049ADC8 /* README.md */; };
 		8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */; };
+		8FE6F37D28FB455E00022F94 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE6F37C28FB455E00022F94 /* APIConstants.swift */; };
 		8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471528F22D5A006DC53E /* SplashScreen.swift */; };
 		8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471928F25BD7006DC53E /* Webservice.swift */; };
 		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8F014E1428B809D000795618 /* Week2 Homework Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Week2 Homework Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
-		8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Week 3 Homework Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8F5C08EF28D628FE002FDB95 /* PetTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTabView.swift; sourceTree = "<group>"; };
 		8F5C08F128D62F49002FDB95 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,8 +43,8 @@
 		8FB4255C28D50E9300FECC9C /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		8FB5CFC628B00EC60049ADC8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8FE6F37C28FB455E00022F94 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		8FFD471728F254CD006DC53E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FFD471928F25BD7006DC53E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				8FFD471828F25BBD006DC53E /* Services */,
-				8FFD471728F254CD006DC53E /* Info.plist */,
-				8FF587AB28CA5E6C00452137 /* Playgrounds */,
 				8F86D30E28AFEDAF006436AC /* Helpers */,
 				8F86D30D28AFED8A006436AC /* App */,
 				8F86D30C28AFED4B006436AC /* Views */,
@@ -139,17 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				8F86D30F28AFEDCB006436AC /* Constants.swift */,
+				8FE6F37C28FB455E00022F94 /* APIConstants.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		8FF587AB28CA5E6C00452137 /* Playgrounds */ = {
-			isa = PBXGroup;
-			children = (
-				8F41301728C272D8009BBC53 /* Week 3 Homework Playground.playground */,
-				8F014E1428B809D000795618 /* Week2 Homework Playground.playground */,
-			);
-			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 		8FFD471828F25BBD006DC53E /* Services */ = {
@@ -242,6 +231,7 @@
 				8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */,
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
+				8FE6F37D28FB455E00022F94 /* APIConstants.swift in Sources */,
 				8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */,
 				8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */,
 				8F5C08F228D62F49002FDB95 /* FavoritesView.swift in Sources */,
