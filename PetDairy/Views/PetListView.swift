@@ -15,11 +15,13 @@ struct PetListView: View {
 						PetDetailView(pet: pet)
 				} label: {
 						HStack {
-								Image(pet.imageString!)
-										.resizable()
-										.scaledToFit()
-										.clipShape(Circle())
-										.frame(width: 100, height: 100)
+								AsyncImage(url: URL(string: pet.imageString ?? "")) { image in
+										image.resizable()
+								} placeholder: {
+										Color.red
+								}
+								.frame(width: 128, height: 128)
+								.clipShape(RoundedRectangle(cornerRadius: 25))
 								Text(pet.name)
 						}
 						

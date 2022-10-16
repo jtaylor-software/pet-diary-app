@@ -18,8 +18,9 @@ struct HomeView: View {
 						}
 						
 						.navigationTitle("Pet List")
+						.navigationViewStyle(.stack)
 						
-						WelcomeView()
+						
 				}
 		}
 }
@@ -27,21 +28,21 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
 		static var previews: some View {
 				HomeView()
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 		}
 }
 

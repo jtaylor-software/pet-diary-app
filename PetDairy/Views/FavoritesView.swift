@@ -15,6 +15,7 @@ struct FavoritesView: View {
 								PetListView(pet: pet)
 						}
 						.navigationTitle("Favorite Pets")
+						.navigationViewStyle(.stack)
 				}
     }
 }
@@ -22,20 +23,20 @@ struct FavoritesView: View {
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				FavoritesView()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				FavoritesView()
 						.preferredColorScheme(.dark)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				FavoritesView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				FavoritesView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
     }
 }

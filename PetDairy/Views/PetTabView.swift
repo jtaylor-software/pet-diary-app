@@ -43,20 +43,20 @@ struct PetTabView: View {
 struct PetTabView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetTabView()
-						.environmentObject(PetModel())
+					.environmentObject(PetModel(webservice: Webservice()))
 				PetTabView()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				PetTabView()
 						.preferredColorScheme(.dark)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				PetTabView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 		}
 }

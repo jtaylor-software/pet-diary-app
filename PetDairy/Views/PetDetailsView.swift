@@ -16,11 +16,13 @@ struct PetDetailsView: View {
 				GeometryReader { geo in
 						HStack(spacing: 20) {
 								VStack {
-												Image(pet.imageString!)
-																.resizable()
-																.scaledToFit()
-																.frame(width: geo.size.width * 0.45, alignment: .bottomTrailing)
-														.clipShape(Circle())
+										AsyncImage(url: URL(string: pet.imageString ?? "")) { image in
+												image.resizable()
+										} placeholder: {
+												Color.red
+										}
+										.frame(width: 128, height: 128)
+										.clipShape(RoundedRectangle(cornerRadius: 25))
 														
 										Button {
 												if model.favoritesContains(pet) {
@@ -52,6 +54,6 @@ struct PetDetailsView: View {
 struct PetDetailsView_Previews: PreviewProvider {
 		static var previews: some View {
 				PetDetailsView(pet: PetModel.examplePet)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 		}
 }

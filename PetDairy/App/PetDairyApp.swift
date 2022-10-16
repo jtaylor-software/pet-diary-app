@@ -12,7 +12,8 @@ struct PetDairyApp: App {
 		@StateObject private var model: PetModel // Part of MV Design Pattern & Observer Pattern
 		
 		init() { // Part of MV Design Pattern
-				_model = StateObject(wrappedValue: PetModel())
+				let webservice = Webservice()
+				_model = StateObject(wrappedValue: PetModel(webservice: webservice))
 		}
 		
 		var body: some Scene {

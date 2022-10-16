@@ -20,7 +20,6 @@
 		8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB35AB628D647E4004C4F08 /* PetListView.swift */; };
 		8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4255C28D50E9300FECC9C /* PetDetailView.swift */; };
 		8FB5CFC728B00EC60049ADC8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FB5CFC628B00EC60049ADC8 /* README.md */; };
-		8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */; };
 		8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471528F22D5A006DC53E /* SplashScreen.swift */; };
 		8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471928F25BD7006DC53E /* Webservice.swift */; };
 		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
@@ -41,7 +40,6 @@
 		8FB35AB628D647E4004C4F08 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
 		8FB4255C28D50E9300FECC9C /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		8FB5CFC628B00EC60049ADC8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8FFD471928F25BD7006DC53E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				8FB4255C28D50E9300FECC9C /* PetDetailView.swift */,
 				8FB35AB428D643DD004C4F08 /* PetDetailsView.swift */,
 				8F86D31128AFEE0E006436AC /* OnboardingView.swift */,
-				8FB5CFCC28B01BDE0049ADC8 /* WelcomeView.swift */,
 				8F5C08F128D62F49002FDB95 /* FavoritesView.swift */,
 				8FB35AB628D647E4004C4F08 /* PetListView.swift */,
 			);
@@ -162,6 +159,8 @@
 			dependencies = (
 			);
 			name = PetDairy;
+			packageProductDependencies = (
+			);
 			productName = PetDairy;
 			productReference = 8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +189,8 @@
 				Base,
 			);
 			mainGroup = 8F86D2F128AFEBAA006436AC;
+			packageReferences = (
+			);
 			productRefGroup = 8F86D2FB28AFEBAA006436AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -217,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FB5CFCD28B01BDE0049ADC8 /* WelcomeView.swift in Sources */,
 				8F86D30028AFEBAA006436AC /* HomeView.swift in Sources */,
 				8F5C08F028D628FE002FDB95 /* PetTabView.swift in Sources */,
 				8F86D31228AFEE0E006436AC /* OnboardingView.swift in Sources */,

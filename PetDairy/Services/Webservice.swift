@@ -7,9 +7,28 @@
 
 import Foundation
 
+enum NetworkError: Error {
+		case badUrl, decodingError, badRequest
+}
+
 class Webservice {
-		func getDataFromApi()  {
+		func getPets() async throws -> [Pet] {
+				// https://br-cat-api.herokuapp.com/pets
+				guard let url = URL(string: "https://br-cat-api.herokuapp.com/pets") else {
+						throw NetworkError.badUrl
+				}
 				
+				let (data, response) = try await URLSession.shared.data(from: url)
+				guard let httpResponse = response as? HTTPURLResponse,
+							httpResponse.statusCode == 200 else {
+						throw NetworkError.badRequest
+				}
+				
+				guard let pets = try? JSONDecoder().decode([Pet].self, from: data) else {
+						throw NetworkError.decodingError
+				}
+				
+				return pets
 		}
 }
 

@@ -13,7 +13,17 @@ struct SplashScreen: View {
 		@State private var emojis = Emojis.previewData
 		@State private var isActive = false
 		
-		@EnvironmentObject var model: PetModel
+		@EnvironmentObject private var model: PetModel
+		
+		// MARK: Assignment 2
+		private func populatePets() async {
+				do {
+						try await model.populatePets()
+						model.savePets()
+				} catch {
+						print(error)
+				}
+		}
 		
 		var body: some View {
 				ZStack {
@@ -50,6 +60,9 @@ struct SplashScreen: View {
 								}
 						}
 						.onAppear {
+								Task {
+										await populatePets()
+								}
 								DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
 										withAnimation {
 												self.isActive = true
@@ -63,21 +76,21 @@ struct SplashScreen: View {
 struct SplashScreen_Previews: PreviewProvider {
 		static var previews: some View {
 				SplashScreen()
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				SplashScreen()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				SplashScreen()
 						.preferredColorScheme(.dark)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				SplashScreen()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				SplashScreen()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 		}
 }
 

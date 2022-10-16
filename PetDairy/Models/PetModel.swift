@@ -16,12 +16,20 @@ class PetModel: ObservableObject { // Observer pattern
 		@Published private(set) var pets: [Pet] = []
 		@Published private (set) var favoritePets: [Pet] = []
 		
-		let webservice = Webservice()
+		let webservice: Webservice
 		
-		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
-		
-		init() {
+		init(webservice: Webservice) {
+				self.webservice = webservice
 				loadPets()
+		}
+		
+		static let examplePet = Pet(name: "Angel",favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
+		
+		func populatePets() async throws {
+				if pets.isEmpty {
+						pets = try await webservice.getPets()
+				}
+				
 		}
 		
 		private func addPet(_ pet: Pet) {
@@ -46,6 +54,8 @@ class PetModel: ObservableObject { // Observer pattern
 				savePets()
 		}
 		
+		// MARK - Assignment 2
+		
 		func getDocumentsDirectory() -> URL {
 				// find all possible documents directories for this user
 				let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -59,7 +69,7 @@ class PetModel: ObservableObject { // Observer pattern
 						do {
 								let petsData = try Data(contentsOf: url)
 								let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
-								pets = petsPlistData
+								print(petsPlistData)
 						} catch {
 								print("Error loading plist data.")
 						}
