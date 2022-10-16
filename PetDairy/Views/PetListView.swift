@@ -18,7 +18,7 @@ struct PetListView: View {
 								AsyncImage(url: URL(string: pet.imageString ?? "")) { image in
 										image.resizable()
 								} placeholder: {
-										Color.red
+										Color.gray
 								}
 								.frame(width: 128, height: 128)
 								.clipShape(RoundedRectangle(cornerRadius: 25))
