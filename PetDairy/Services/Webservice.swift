@@ -14,7 +14,7 @@ enum NetworkError: Error {
 class Webservice {
 		func getPets() async throws -> [Pet] {
 				// https://br-cat-api.herokuapp.com/pets
-				guard let url = URL(string: "https://br-cat-api.herokuapp.com/pets") else {
+				guard let url = URL(string: Constants.API.baseUrl.rawValue) else {
 						throw NetworkError.badUrl
 				}
 				
