@@ -21,9 +21,6 @@ struct HomeView: View {
 						
 						WelcomeView()
 				}
-				.onAppear {
-						model.addExamplePets()
-				}
 		}
 }
 
