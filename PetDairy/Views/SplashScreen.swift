@@ -55,10 +55,6 @@ struct SplashScreen: View {
 												self.isActive = true
 										}
 								}
-								Task { @MainActor in
-										model.webservice.getDataFromApi()
-										await model.webservice.getCookie()
-								}
 						}
 				}
 		}

@@ -21,7 +21,7 @@ class PetModel: ObservableObject { // Observer pattern
 		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
 		
 		init() {
-				loadFavorites()
+				loadPets()
 		}
 		
 		private func addPet(_ pet: Pet) {
@@ -53,7 +53,7 @@ class PetModel: ObservableObject { // Observer pattern
 		func addFavorite(_ pet: Pet) {
 				objectWillChange.send()
 				favoritePets.insert(pet, at: 0)
-				saveFavorites()
+				savePets()
 		}
 		
 		func removeFavorite(_ pet: Pet) {
@@ -61,7 +61,7 @@ class PetModel: ObservableObject { // Observer pattern
 				favoritePets.remove(at: index)
 				objectWillChange.send()
 				
-				saveFavorites()
+				savePets()
 		}
 		
 		func getDocumentsDirectory() -> URL {
@@ -72,29 +72,25 @@ class PetModel: ObservableObject { // Observer pattern
 				return paths[0]
 		}
 		
-		func loadFavorites() {
-				// Memento pattern
-				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
-				do {
-						let jsonData = try Data(contentsOf: url)
-						let favorites = try JSONDecoder().decode([Pet].self, from: jsonData)
-						favoritePets = favorites
-				} catch {
-						print("Error loading json data.")
+		func loadPets() {
+						let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+						do {
+								let petsData = try Data(contentsOf: url)
+								let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
+								pets = petsPlistData
+						} catch {
+								print("Error loading plist data.")
+						}
 				}
-		}
-		
-		func saveFavorites() {
-				/* Refactor save method to write a plist to user documents directory.
-				 Memento pattern
-				 */
 				
-				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
-				do {
-						let savedData =	try JSONEncoder().encode(favoritePets)
-						try savedData.write(to: url)
-				} catch {
-						print("Error saving json data")
+				func savePets() {
+						
+						let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+						do {
+								let savedData =	try PropertyListEncoder().encode(pets)
+								try savedData.write(to: url, options: .atomic)
+						} catch {
+								print("Error saving plist data")
+						}
 				}
-		}
 }
