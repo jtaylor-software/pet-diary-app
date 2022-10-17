@@ -40,9 +40,9 @@ struct PetDetailsView: View {
 								.padding(.leading)
 								
 								VStack(alignment: .leading, spacing: 5) {
-										Text("Name: \(pet.name ?? "")")
+										Text("Name: \(pet.wrappedName)")
 										Text("Age: \(pet.age)")
-										Text("Bio: \(pet.trait ?? "Cute")")
+										Text("Bio: \(pet.wrappedTrait)")
 
 								}
 						}

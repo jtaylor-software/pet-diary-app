@@ -9,7 +9,8 @@ import SwiftUI
 import CoreData
 
 struct PetListView: View {
-		
+		let petsFetchRequest = CoreDataPet.fetchRequest()
+
 		let pet: CoreDataPet
 		
 		var body: some View {
@@ -26,7 +27,6 @@ struct PetListView: View {
 								.clipShape(RoundedRectangle(cornerRadius: 25))
 								Text(pet.name ?? "")
 						}
-						
 				}
 		}
 }
