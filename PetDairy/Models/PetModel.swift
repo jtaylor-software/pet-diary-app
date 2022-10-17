@@ -32,27 +32,6 @@ class PetModel: ObservableObject { // Observer pattern
 				
 		}
 		
-		private func addPet(_ pet: Pet) {
-				pets.append(pet)
-		}
-		
-		func favoritesContains(_ pet: Pet) -> Bool {
-				favoritePets.contains(pet)
-		}
-		
-		func addFavorite(_ pet: Pet) {
-				objectWillChange.send()
-				favoritePets.insert(pet, at: 0)
-				savePets()
-		}
-		
-		func removeFavorite(_ pet: Pet) {
-				guard let index = favoritePets.firstIndex(of: pet) else { return }
-				favoritePets.remove(at: index)
-				objectWillChange.send()
-				
-				savePets()
-		}
 		
 		// MARK - Assignment 2
 		
@@ -65,24 +44,47 @@ class PetModel: ObservableObject { // Observer pattern
 		}
 		
 		func loadPets() {
-						let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
-						do {
-								let petsData = try Data(contentsOf: url)
-								let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
-								print(petsPlistData)
-						} catch {
-								print("Error loading plist data.")
+				let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+				do {
+						let petsData = try Data(contentsOf: url)
+						let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
+						print(petsPlistData)
+				} catch {
+						print("Error loading plist data.")
+				}
+		}
+		
+		func savePets() {
+				
+				let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+				do {
+						let savedData =	try PropertyListEncoder().encode(pets)
+						try savedData.write(to: url, options: .atomic)
+				} catch {
+						print("Error saving plist data")
+				}
+		}
+		
+		func addPetsToCoreData() {
+				if !UserDefaults.standard.bool(forKey: Constants.CoreData.dataImpprted.rawValue) {
+						for pet in pets {
+								let coreDataPet = CoreDataPet(context: CoreDataManager.shared.viewContext)
+								coreDataPet.name = pet.name
+								coreDataPet.imageString = pet.imageString
+								coreDataPet.favoriteToy = pet.favoriteToy
+								coreDataPet.trait = pet.trait
+								coreDataPet.age = pet.age
+								coreDataPet.birthday = pet.birthday
+								
+								do {
+										try CoreDataManager.shared.viewContext.save()
+								} catch {
+										let nserror = error as NSError
+										fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+								}
 						}
+						UserDefaults.standard.set(true, forKey: Constants.CoreData.dataImpprted.rawValue)
 				}
 				
-				func savePets() {
-						
-						let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
-						do {
-								let savedData =	try PropertyListEncoder().encode(pets)
-								try savedData.write(to: url, options: .atomic)
-						} catch {
-								print("Error saving plist data")
-						}
-				}
+		}
 }

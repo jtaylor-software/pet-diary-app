@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct PetListView: View {
-		let pet: Pet
+		
+		let pet: CoreDataPet
 		
 		var body: some View {
 				NavigationLink {
@@ -22,15 +24,15 @@ struct PetListView: View {
 								}
 								.frame(width: 128, height: 128)
 								.clipShape(RoundedRectangle(cornerRadius: 25))
-								Text(pet.name)
+								Text(pet.name ?? "")
 						}
 						
 				}
 		}
 }
 
-struct PetListView_Previews: PreviewProvider {
-    static var previews: some View {
-				PetListView(pet: PetModel.examplePet)
-    }
-}
+//struct PetListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//				PetListView(pet: PetModel.examplePet)
+//    }
+//}

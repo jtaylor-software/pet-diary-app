@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
 		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
+		@FetchRequest(sortDescriptors: []) var pets: FetchedResults<CoreDataPet>
 		
 		var body: some View {
 				NavigationView {
-						List(model.pets) { pet in
+						List(pets) { pet in
 								PetListView(pet: pet)
 
 						}

@@ -20,6 +20,8 @@ struct SplashScreen: View {
 				do {
 						try await model.populatePets()
 						model.savePets()
+						model.addPetsToCoreData()
+						
 				} catch {
 						print(error)
 				}

@@ -20,6 +20,7 @@ struct PetDairyApp: App {
 				WindowGroup {
 						SplashScreen()
 								.environmentObject(model) // Part of MV Design Pattern
+								.environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
 				}
 		}
 }

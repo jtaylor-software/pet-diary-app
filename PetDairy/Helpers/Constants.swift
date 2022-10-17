@@ -21,4 +21,8 @@ enum Constants {
 		enum API: String {
 				case baseUrl = "https://br-cat-api.herokuapp.com/pets"
 		}
+		
+		enum CoreData: String {
+				case dataImpprted
+		}
 }
