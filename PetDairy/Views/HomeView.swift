@@ -10,19 +10,33 @@ import CoreData
 
 struct HomeView: View {
 		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
-		@FetchRequest(sortDescriptors: []) var pets: FetchedResults<CoreDataPet>
+		@Environment(\.managedObjectContext) private var viewContext
+		@FetchRequest(
+				sortDescriptors: PetSort.default.descriptors,
+				animation: .default)
+		 private var pets: FetchedResults<CoreDataPet>
+		@State private var selectedSort = PetSort.default
+
 		
 		var body: some View {
 				NavigationView {
 						List(pets) { pet in
 								PetListView(pet: pet)
-
+								
+						}
+						.toolbar {
+								ToolbarItemGroup(placement: .navigationBarTrailing) {
+									SortSelectionView(
+										selectedSortItem: $selectedSort,
+										sorts: PetSort.sorts)
+									.onChange(of: selectedSort) { _ in
+										pets.sortDescriptors = selectedSort.descriptors
+									}
+								}
 						}
 						
 						.navigationTitle("Pet List")
 						.navigationViewStyle(.stack)
-						
-						
 				}
 		}
 }

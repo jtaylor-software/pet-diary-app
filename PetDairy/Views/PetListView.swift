@@ -9,8 +9,13 @@ import SwiftUI
 import CoreData
 
 struct PetListView: View {
-		let petsFetchRequest = CoreDataPet.fetchRequest()
-
+		@Environment(\.managedObjectContext) private var viewContext
+		@FetchRequest(
+				sortDescriptors: PetSort.default.descriptors,
+				animation: .default)
+		private var pets: FetchedResults<CoreDataPet>
+		@State private var selectedSort = PetSort.default
+		
 		let pet: CoreDataPet
 		
 		var body: some View {
@@ -25,7 +30,17 @@ struct PetListView: View {
 								}
 								.frame(width: 128, height: 128)
 								.clipShape(RoundedRectangle(cornerRadius: 25))
-								Text(pet.name ?? "")
+								Text(pet.wrappedName)
+						}
+						.toolbar {
+								ToolbarItemGroup(placement: .navigationBarTrailing) {
+										SortSelectionView(
+												selectedSortItem: $selectedSort,
+												sorts: PetSort.sorts)
+										.onChange(of: selectedSort) { _ in
+												pets.sortDescriptors = selectedSort.descriptors
+										}
+								}
 						}
 				}
 		}
