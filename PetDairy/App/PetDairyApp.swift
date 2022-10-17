@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct PetDairyApp: App {
 		@StateObject private var model: PetModel // Part of MV Design Pattern & Observer Pattern
+		@StateObject private var coreDataManager = CoreDataManager()
 		
 		init() { // Part of MV Design Pattern
 				let webservice = Webservice()
@@ -20,7 +21,7 @@ struct PetDairyApp: App {
 				WindowGroup {
 						SplashScreen()
 								.environmentObject(model) // Part of MV Design Pattern
-								.environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
+								.environment(\.managedObjectContext, coreDataManager.container.viewContext)
 				}
 		}
 }

@@ -10,12 +10,11 @@ import CoreData
 
 struct HomeView: View {
 		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
-		@Environment(\.managedObjectContext) private var viewContext
 		@FetchRequest(
 				sortDescriptors: PetSort.default.descriptors,
 				animation: .default)
-		 private var pets: FetchedResults<CoreDataPet>
-		@State private var selectedSort = PetSort.default
+		  var pets: FetchedResults<CoreDataPet>
+		@State var selectedSort = PetSort.default
 
 		
 		var body: some View {

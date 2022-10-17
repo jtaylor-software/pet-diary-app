@@ -8,20 +8,14 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
-		static let shared = CoreDataManager()
-		private var persistentContainer: NSPersistentContainer
+class CoreDataManager: ObservableObject {
+		let container = NSPersistentContainer(name: "PetModel")
 		
-		private init() {
-				persistentContainer = NSPersistentContainer(name: "PetModel")
-				persistentContainer.loadPersistentStores { description, error in
+		init() {
+				container.loadPersistentStores { description, error in
 						if let error = error {
-								fatalError("Unable to initialize Core Data stack \(error)")
+								print("Core Data failed to load: \(error.localizedDescription)")
 						}
 				}
-		}
-		
-		var viewContext: NSManagedObjectContext {
-				persistentContainer.viewContext
 		}
 }
