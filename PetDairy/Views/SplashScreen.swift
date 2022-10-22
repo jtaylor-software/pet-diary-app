@@ -14,14 +14,30 @@ struct SplashScreen: View {
 		@State private var isActive = false
 		
 		@EnvironmentObject private var model: PetModel
+		@Environment(\.managedObjectContext) var moc
+		
+		func addPetsToCoreData(pets: [Pet]) {
+				for pet in pets {
+						let coreDataPet = CoreDataPet(context: moc)
+						coreDataPet.name = pet.name
+						coreDataPet.imageString = pet.imageString
+						coreDataPet.favoriteToy = pet.favoriteToy
+						coreDataPet.trait = pet.trait
+						coreDataPet.age = pet.age
+						coreDataPet.birthday = pet.birthday
+						
+						try? moc.save()
+				}
+		}
 		
 		// MARK: Assignment 2
 		private func populatePets() async {
 				do {
 						try await model.populatePets()
+						await MainActor.run {
+								addPetsToCoreData(pets: model.pets)
+						}
 						model.savePets()
-						model.addPetsToCoreData()
-						
 				} catch {
 						print(error)
 				}

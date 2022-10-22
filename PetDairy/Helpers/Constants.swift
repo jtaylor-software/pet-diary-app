@@ -23,6 +23,6 @@ enum Constants {
 		}
 		
 		enum CoreData: String {
-				case dataImpprted
+				case dataImported
 		}
 }

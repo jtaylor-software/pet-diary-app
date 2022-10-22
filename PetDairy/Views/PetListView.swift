@@ -11,10 +11,8 @@ import CoreData
 struct PetListView: View {
 		@Environment(\.managedObjectContext) private var viewContext
 		@FetchRequest(
-				sortDescriptors: PetSort.default.descriptors,
-				animation: .default)
+				sortDescriptors: [])
 		private var pets: FetchedResults<CoreDataPet>
-		@State private var selectedSort = PetSort.default
 		
 		let pet: CoreDataPet
 		
@@ -34,12 +32,6 @@ struct PetListView: View {
 						}
 						.toolbar {
 								ToolbarItemGroup(placement: .navigationBarTrailing) {
-										SortSelectionView(
-												selectedSortItem: $selectedSort,
-												sorts: PetSort.sorts)
-										.onChange(of: selectedSort) { _ in
-												pets.sortDescriptors = selectedSort.descriptors
-										}
 								}
 						}
 				}

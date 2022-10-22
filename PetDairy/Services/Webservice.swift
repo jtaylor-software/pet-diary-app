@@ -5,13 +5,14 @@
 //  Created by Jeremy Taylor on 10/8/22.
 //
 
-import Foundation
+import SwiftUI
 
 enum NetworkError: Error {
 		case badUrl, decodingError, badRequest
 }
 
 class Webservice {
+		@StateObject private var model = PetModel(webservice: Webservice())
 		func getPets() async throws -> [Pet] {
 				// https://br-cat-api.herokuapp.com/pets
 				guard let url = URL(string: Constants.API.baseUrl.rawValue) else {

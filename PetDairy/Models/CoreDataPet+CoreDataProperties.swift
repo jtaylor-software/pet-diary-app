@@ -28,6 +28,18 @@ extension CoreDataPet {
 				name ?? ""
 		}
 		
+		var wrappedFavoriteToy: String {
+				favoriteToy ?? "Everything!"
+		}
+		
+		var wrappedImageString: String {
+				imageString ?? ""
+		}
+		
+		var wrappedBirthday: String {
+				birthday ?? "August 31, 2022"
+		}
+		
 		var wrappedTrait: String {
 				trait ?? "Cute"
 		}

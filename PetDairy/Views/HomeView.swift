@@ -11,11 +11,8 @@ import CoreData
 struct HomeView: View {
 		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
 		@FetchRequest(
-				sortDescriptors: PetSort.default.descriptors,
-				animation: .default)
-		  var pets: FetchedResults<CoreDataPet>
-		@State var selectedSort = PetSort.default
-
+				sortDescriptors: [])
+		var pets: FetchedResults<CoreDataPet>
 		
 		var body: some View {
 				NavigationView {
@@ -25,12 +22,7 @@ struct HomeView: View {
 						}
 						.toolbar {
 								ToolbarItemGroup(placement: .navigationBarTrailing) {
-									SortSelectionView(
-										selectedSortItem: $selectedSort,
-										sorts: PetSort.sorts)
-									.onChange(of: selectedSort) { _ in
-										pets.sortDescriptors = selectedSort.descriptors
-									}
+										
 								}
 						}
 						

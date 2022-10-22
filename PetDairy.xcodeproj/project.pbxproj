@@ -24,12 +24,21 @@
 		8FD2FCAD28FCD48500CAC986 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCAC28FCD48500CAC986 /* CoreDataManager.swift */; };
 		8FD2FCB028FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCAE28FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift */; };
 		8FD2FCB128FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCAF28FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift */; };
-		8FD2FCB328FCFE7800CAC986 /* PetSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCB228FCFE7800CAC986 /* PetSort.swift */; };
-		8FD2FCB528FD026400CAC986 /* SortSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCB428FD026400CAC986 /* SortSelectionView.swift */; };
+		8FDFC58929049AA300EEE409 /* Pet_DairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */; };
 		8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471528F22D5A006DC53E /* SplashScreen.swift */; };
 		8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471928F25BD7006DC53E /* Webservice.swift */; };
 		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8FDFC58A29049AA300EEE409 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F86D2F228AFEBAA006436AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F86D2F928AFEBAA006436AC;
+			remoteInfo = PetDairy;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -50,8 +59,8 @@
 		8FD2FCAC28FCD48500CAC986 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8FD2FCAE28FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataPet+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8FD2FCAF28FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataPet+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8FD2FCB228FCFE7800CAC986 /* PetSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSort.swift; sourceTree = "<group>"; };
-		8FD2FCB428FD026400CAC986 /* SortSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSelectionView.swift; sourceTree = "<group>"; };
+		8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet DairyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_DairyTests.swift; sourceTree = "<group>"; };
 		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8FFD471928F25BD7006DC53E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -59,6 +68,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		8F86D2F728AFEBAA006436AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDFC58329049AA300EEE409 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,6 +89,7 @@
 			children = (
 				8FB5CFC628B00EC60049ADC8 /* README.md */,
 				8F86D2FC28AFEBAA006436AC /* PetDairy */,
+				8FDFC58729049AA300EEE409 /* Pet DairyTests */,
 				8F86D2FB28AFEBAA006436AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */,
+				8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,7 +132,6 @@
 				8FD2FCAE28FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift */,
 				8F014E1528B81C8E00795618 /* Pet.swift */,
 				8FFE885928DD2C8E0059FAC7 /* PetModel.swift */,
-				8FD2FCB228FCFE7800CAC986 /* PetSort.swift */,
 				8FD2FCA828FCD2FB00CAC986 /* PetModel.xcdatamodeld */,
 			);
 			path = Models;
@@ -126,7 +143,6 @@
 				8FFD471528F22D5A006DC53E /* SplashScreen.swift */,
 				8F5C08EF28D628FE002FDB95 /* PetTabView.swift */,
 				8F86D2FF28AFEBAA006436AC /* HomeView.swift */,
-				8FD2FCB428FD026400CAC986 /* SortSelectionView.swift */,
 				8FB4255C28D50E9300FECC9C /* PetDetailView.swift */,
 				8FB35AB428D643DD004C4F08 /* PetDetailsView.swift */,
 				8F86D31128AFEE0E006436AC /* OnboardingView.swift */,
@@ -161,6 +177,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		8FDFC58729049AA300EEE409 /* Pet DairyTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */,
+			);
+			path = "Pet DairyTests";
+			sourceTree = "<group>";
+		};
 		8FFD471828F25BBD006DC53E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +215,24 @@
 			productReference = 8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8FDFC58529049AA300EEE409 /* Pet DairyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DairyTests" */;
+			buildPhases = (
+				8FDFC58229049AA300EEE409 /* Sources */,
+				8FDFC58329049AA300EEE409 /* Frameworks */,
+				8FDFC58429049AA300EEE409 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FDFC58B29049AA300EEE409 /* PBXTargetDependency */,
+			);
+			name = "Pet DairyTests";
+			productName = "Pet DairyTests";
+			productReference = 8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,6 +245,10 @@
 				TargetAttributes = {
 					8F86D2F928AFEBAA006436AC = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					8FDFC58529049AA300EEE409 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8F86D2F928AFEBAA006436AC;
 					};
 				};
 			};
@@ -222,6 +268,7 @@
 			projectRoot = "";
 			targets = (
 				8F86D2F928AFEBAA006436AC /* PetDairy */,
+				8FDFC58529049AA300EEE409 /* Pet DairyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +281,13 @@
 				8FB5CFC728B00EC60049ADC8 /* README.md in Resources */,
 				8F86D30528AFEBAC006436AC /* Preview Assets.xcassets in Resources */,
 				8F86D30228AFEBAC006436AC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDFC58429049AA300EEE409 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,16 +311,30 @@
 				8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */,
 				8FD2FCB028FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift in Sources */,
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
-				8FD2FCB328FCFE7800CAC986 /* PetSort.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
 				8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */,
 				8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */,
 				8F5C08F228D62F49002FDB95 /* FavoritesView.swift in Sources */,
-				8FD2FCB528FD026400CAC986 /* SortSelectionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDFC58229049AA300EEE409 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDFC58929049AA300EEE409 /* Pet_DairyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FDFC58B29049AA300EEE409 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F86D2F928AFEBAA006436AC /* PetDairy */;
+			targetProxy = 8FDFC58A29049AA300EEE409 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8F86D30628AFEBAC006436AC /* Debug */ = {
@@ -445,6 +513,42 @@
 			};
 			name = Release;
 		};
+		8FDFC58C29049AA300EEE409 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Dairy.app/Pet Dairy";
+			};
+			name = Debug;
+		};
+		8FDFC58D29049AA300EEE409 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Dairy.app/Pet Dairy";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -462,6 +566,15 @@
 			buildConfigurations = (
 				8F86D30928AFEBAC006436AC /* Debug */,
 				8F86D30A28AFEBAC006436AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DairyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FDFC58C29049AA300EEE409 /* Debug */,
+				8FDFC58D29049AA300EEE409 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

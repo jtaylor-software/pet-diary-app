@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CoreDataPet" representedClassName="CoreDataPet" syncable="YES">
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="birthday" optional="YES" attributeType="String"/>
-        <attribute name="favorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="favoriteToy" optional="YES" attributeType="String"/>
-        <attribute name="imageString" optional="YES" attributeType="String"/>
+        <attribute name="age" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="birthday" attributeType="String"/>
+        <attribute name="favoriteToy" attributeType="String"/>
+        <attribute name="imageString" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="trait" optional="YES" attributeType="String"/>
+        <attribute name="trait" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CoreDataPet" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="CoreDataPet" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

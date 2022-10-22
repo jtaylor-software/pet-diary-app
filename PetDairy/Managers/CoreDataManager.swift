@@ -16,6 +16,7 @@ class CoreDataManager: ObservableObject {
 						if let error = error {
 								print("Core Data failed to load: \(error.localizedDescription)")
 						}
+						self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
 				}
 		}
 }

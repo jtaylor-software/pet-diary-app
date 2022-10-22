@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 /*
  Aggragate root - part of MV Design Pattern
  */
@@ -17,7 +18,7 @@ class PetModel: ObservableObject { // Observer pattern
 		@Published private(set) var pets: [Pet] = []
 		@Published private (set) var favoritePets: [Pet] = []
 		
-		@Environment(\.managedObjectContext) var moc
+		
 		
 		let webservice: Webservice
 		
@@ -31,6 +32,7 @@ class PetModel: ObservableObject { // Observer pattern
 		func populatePets() async throws {
 				if pets.isEmpty {
 						pets = try await webservice.getPets()
+						
 				}
 				
 		}
@@ -51,7 +53,7 @@ class PetModel: ObservableObject { // Observer pattern
 				do {
 						let petsData = try Data(contentsOf: url)
 						let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
-						print(petsPlistData)
+						pets = petsPlistData
 				} catch {
 						print("Error loading plist data.")
 				}
@@ -68,26 +70,5 @@ class PetModel: ObservableObject { // Observer pattern
 				}
 		}
 		
-		func addPetsToCoreData() {
-				if !UserDefaults.standard.bool(forKey: Constants.CoreData.dataImpprted.rawValue) {
-						for pet in pets {
-								let coreDataPet = CoreDataPet(context: moc)
-								coreDataPet.name = pet.name
-								coreDataPet.imageString = pet.imageString
-								coreDataPet.favoriteToy = pet.favoriteToy
-								coreDataPet.trait = pet.trait
-								coreDataPet.age = pet.age
-								coreDataPet.birthday = pet.birthday
-								
-								do {
-										try moc.save()
-								} catch {
-										let nserror = error as NSError
-										fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-								}
-						}
-						UserDefaults.standard.set(true, forKey: Constants.CoreData.dataImpprted.rawValue)
-				}
-				
-		}
+		
 }
