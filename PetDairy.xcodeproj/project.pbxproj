@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F014E1628B81C8E00795618 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F014E1528B81C8E00795618 /* Pet.swift */; };
+		8F5166A12905DD4E0074E203 /* PetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5166A02905DD4E0074E203 /* PetService.swift */; };
 		8F5C08F028D628FE002FDB95 /* PetTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C08EF28D628FE002FDB95 /* PetTabView.swift */; };
 		8F5C08F228D62F49002FDB95 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C08F128D62F49002FDB95 /* FavoritesView.swift */; };
 		8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		8F5166A02905DD4E0074E203 /* PetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetService.swift; sourceTree = "<group>"; };
 		8F5C08EF28D628FE002FDB95 /* PetTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTabView.swift; sourceTree = "<group>"; };
 		8F5C08F128D62F49002FDB95 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8F86D2FA28AFEBAA006436AC /* Pet Dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				8FFD471928F25BD7006DC53E /* Webservice.swift */,
+				8F5166A02905DD4E0074E203 /* PetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				8F86D30028AFEBAA006436AC /* HomeView.swift in Sources */,
 				8F5C08F028D628FE002FDB95 /* PetTabView.swift in Sources */,
 				8FD2FCB128FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift in Sources */,
+				8F5166A12905DD4E0074E203 /* PetService.swift in Sources */,
 				8F86D31228AFEE0E006436AC /* OnboardingView.swift in Sources */,
 				8FD2FCAD28FCD48500CAC986 /* CoreDataManager.swift in Sources */,
 				8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */,
