@@ -25,6 +25,8 @@
 		8FD2FCB028FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCAE28FCF71400CAC986 /* CoreDataPet+CoreDataClass.swift */; };
 		8FD2FCB128FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2FCAF28FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift */; };
 		8FDFC58929049AA300EEE409 /* Pet_DairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */; };
+		8FDFC59229059BA100EEE409 /* Pet_DiaryCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDFC59129059BA100EEE409 /* Pet_DiaryCoreDataTests.swift */; };
+		8FDFC5942905B21800EEE409 /* TestCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDFC5932905B21800EEE409 /* TestCoreDataManager.swift */; };
 		8FFD471628F22D5A006DC53E /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471528F22D5A006DC53E /* SplashScreen.swift */; };
 		8FFD471A28F25BD7006DC53E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD471928F25BD7006DC53E /* Webservice.swift */; };
 		8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE885928DD2C8E0059FAC7 /* PetModel.swift */; };
@@ -61,6 +63,8 @@
 		8FD2FCAF28FCF71400CAC986 /* CoreDataPet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataPet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet DairyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_DairyTests.swift; sourceTree = "<group>"; };
+		8FDFC59129059BA100EEE409 /* Pet_DiaryCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_DiaryCoreDataTests.swift; sourceTree = "<group>"; };
+		8FDFC5932905B21800EEE409 /* TestCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataManager.swift; sourceTree = "<group>"; };
 		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8FFD471928F25BD7006DC53E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				8FDFC58829049AA300EEE409 /* Pet_DairyTests.swift */,
+				8FDFC5932905B21800EEE409 /* TestCoreDataManager.swift */,
+				8FDFC59129059BA100EEE409 /* Pet_DiaryCoreDataTests.swift */,
 			);
 			path = "Pet DairyTests";
 			sourceTree = "<group>";
@@ -322,7 +328,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDFC59229059BA100EEE409 /* Pet_DiaryCoreDataTests.swift in Sources */,
 				8FDFC58929049AA300EEE409 /* Pet_DairyTests.swift in Sources */,
+				8FDFC5942905B21800EEE409 /* TestCoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import XCTest
 
 final class Pet_DairyTests: XCTestCase {
 		var expectation: XCTestExpectation!
-		let timeout: TimeInterval = 2
+		let timeout: TimeInterval = 5
 		
 		override func setUp() {
 				expectation = expectation(description: "Server responds in reasonable time")
@@ -36,9 +36,45 @@ final class Pet_DairyTests: XCTestCase {
 						defer { self.expectation.fulfill() }
 						
 						XCTAssertNil(error)
+						do {
+								let response = try XCTUnwrap(response as? HTTPURLResponse)
+								XCTAssertEqual(response.statusCode, 200)
+								
+								let data = try XCTUnwrap(data)
+								XCTAssertNoThrow(
+										try JSONDecoder().decode([Pet].self, from: data)
+								)
+						} catch { }
 				}
 				.resume()
 				
 				waitForExpectations(timeout: timeout)
 		}
+		
+		func test_404() {
+						let url = URL(string: Constants.API.baseUrlBad.rawValue)!
+						
+						URLSession.shared.dataTask(with: url) { data, response, error in
+								defer { self.expectation.fulfill() }
+								
+								XCTAssertNil(error)
+								do {
+										let response = try XCTUnwrap(response as? HTTPURLResponse)
+										XCTAssertEqual(response.statusCode, 404)
+										
+										let data = try XCTUnwrap(data)
+										XCTAssertThrowsError(
+												try JSONDecoder().decode([Pet].self, from: data)
+										) { error in
+												guard case DecodingError.dataCorrupted = error else {
+														XCTFail("\(error)")
+														return
+												}
+										}
+								} catch { }
+						}
+						.resume()
+						
+						waitForExpectations(timeout: timeout)
+				}
 }
