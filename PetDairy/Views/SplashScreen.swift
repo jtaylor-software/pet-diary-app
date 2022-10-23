@@ -17,17 +17,21 @@ struct SplashScreen: View {
 		@Environment(\.managedObjectContext) var moc
 		
 		func addPetsToCoreData(pets: [Pet]) {
-				for pet in pets {
-						let coreDataPet = CoreDataPet(context: moc)
-						coreDataPet.name = pet.name
-						coreDataPet.imageString = pet.imageString
-						coreDataPet.favoriteToy = pet.favoriteToy
-						coreDataPet.trait = pet.trait
-						coreDataPet.age = pet.age
-						coreDataPet.birthday = pet.birthday
-						
-						try? moc.save()
+				if !UserDefaults.standard.bool(forKey: Constants.CoreData.dataImported.rawValue) {
+						for pet in pets {
+								let coreDataPet = CoreDataPet(context: moc)
+								coreDataPet.name = pet.name
+								coreDataPet.imageString = pet.imageString
+								coreDataPet.favoriteToy = pet.favoriteToy
+								coreDataPet.trait = pet.trait
+								coreDataPet.age = pet.age
+								coreDataPet.birthday = pet.birthday
+								
+								try? moc.save()
+								UserDefaults.standard.set(true, forKey: Constants.CoreData.dataImported.rawValue)
+						}
 				}
+				
 		}
 		
 		// MARK: Assignment 2
