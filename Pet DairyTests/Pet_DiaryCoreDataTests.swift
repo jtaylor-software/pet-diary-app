@@ -77,11 +77,25 @@ class PetDiaryCoreDataTest: XCTestCase {
 				
 				let updatedPet = petService.update(newPet)
 				
+				XCTAssertTrue(newPet.id == updatedPet.id)
 				XCTAssertTrue(updatedPet.name == "Spot")
 				XCTAssertTrue(updatedPet.favoriteToy == "Ewok")
 				XCTAssertTrue(updatedPet.imageString == "https://jctaylor.org/spot.jpeg")
 				XCTAssertTrue(updatedPet.age == 1)
 				XCTAssertTrue(updatedPet.birthday == "10/23/2021")
 				XCTAssertTrue(updatedPet.trait == "Restless")
+		}
+		
+		func test_DeletePet() {
+				let newPet = petService.add(name: "Fluffy", favoriteToy: "Socks", imageString: "https://jctaylor.org/fluffy.jpeg", age: 2, birthday: "7/4/2020", trait: "Playful!")
+				
+				var fetchPets = petService.getPets()
+						XCTAssertTrue(fetchPets?.count == 1)
+						XCTAssertTrue(newPet.id == fetchPets?.first?.id)
+				
+				petService.delete(newPet)
+				fetchPets = petService.getPets()
+				
+				XCTAssertTrue(fetchPets?.isEmpty ?? false)
 		}
 }
