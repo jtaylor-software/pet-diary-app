@@ -37,7 +37,7 @@ class PetDiaryCoreDataTest: XCTestCase {
 				XCTAssertTrue(pet.trait == "Playful!")
 		}
 		
-		func test_savePet() {
+		func test_SavePet() {
 				let derivedContext = coreDataManager.newDerivedContext()
 					expectation(
 						forNotification: .NSManagedObjectContextDidSave,
@@ -55,4 +55,14 @@ class PetDiaryCoreDataTest: XCTestCase {
 						XCTAssertNil(error, "Save did not occur")
 					}
 		}
+		
+		func test_GetPet() {
+				_ = petService.add(name: "Fluffy", favoriteToy: "Socks", imageString: "https://jctaylor.org/fluffy.jpeg", age: 2, birthday: "7/4/2020", trait: "Playful!")
+		
+				let getPets = petService.getPets()
+
+				XCTAssertNotNil(getPets)
+				XCTAssertTrue(getPets?.count == 1)
+		}
+
 }
