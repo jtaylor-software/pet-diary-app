@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PetDetailView: View {
-		let pet: CoreDataPet
+		let pet: Pet
     
 		var body: some View {
 				NavigationView {
@@ -17,10 +17,10 @@ struct PetDetailView: View {
     }
 }
 
-//struct PetDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//				PetDetailView(pet: PetModel.examplePet)
-//						.environmentObject(PetModel(webservice: Webservice()))
-//    }
-//}
+struct PetDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+				PetDetailView(pet: PetModel.examplePet)
+						.environmentObject(PetModel(webservice: Webservice()))
+    }
+}
 
