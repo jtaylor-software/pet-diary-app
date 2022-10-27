@@ -29,6 +29,7 @@ class PetModel: ObservableObject { // Observer pattern
     func populatePets() async throws {
         if pets.isEmpty {
             pets = try await webservice.getPets()
+            savePets()
             
         }
     }

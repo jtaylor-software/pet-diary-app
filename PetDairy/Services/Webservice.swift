@@ -12,7 +12,7 @@ enum NetworkError: Error {
 }
 
 class Webservice {
-		@StateObject private var model = PetModel(webservice: Webservice())
+    @StateObject private var model = PetModel(webservice: Webservice())
 		func getPets() async throws -> [Pet] {
 				// https://br-cat-api.herokuapp.com/pets
 				guard let url = URL(string: Constants.API.baseUrl.rawValue) else {

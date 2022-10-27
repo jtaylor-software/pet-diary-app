@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PetTabView: View {
-    // Singleton pattern as AppStorage is a wrapper for UserDefaults
-    @AppStorage("PetDairyCurrentTab") var selectedTab = 1
+    @AppStorage("PetDairyCurrentTab") var selectedTab = 0
     @EnvironmentObject var model: PetModel
     
     var body: some View {
@@ -29,6 +28,15 @@ struct PetTabView: View {
                 }
                 .tag(1)
                 .badge(model.favoritePets.count)
+        }
+        .task {
+            if model.pets.isEmpty {
+                do {
+                    try await model.populatePets()
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 }
