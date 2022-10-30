@@ -9,20 +9,21 @@ import SwiftUI
 
 struct HomeView: View {
 		@EnvironmentObject var model: PetModel // Part of MV Design Pattern
-		
+   
 		var body: some View {
 				NavigationView {
-						List(model.pets) { pet in
+                    List(model.pets) { pet in
 								PetListView(pet: pet)
-
+								
+						}
+						.toolbar {
+								ToolbarItemGroup(placement: .navigationBarTrailing) {
+										
+								}
 						}
 						
 						.navigationTitle("Pet List")
-						
-						WelcomeView()
-				}
-				.onAppear {
-						model.addExamplePets()
+						.navigationViewStyle(.stack)
 				}
 		}
 }
@@ -30,21 +31,21 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
 		static var previews: some View {
 				HomeView()
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 568, height: 320))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 				HomeView()
 						.preferredColorScheme(.dark)
 						.previewLayout(.fixed(width: 926, height: 428))
-						.environmentObject(PetModel())
+						.environmentObject(PetModel(webservice: Webservice()))
 		}
 }
 

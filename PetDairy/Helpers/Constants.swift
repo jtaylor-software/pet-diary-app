@@ -17,4 +17,9 @@ enum Constants {
 		case darkModeCatImage = "darkModeCatOnboarding"
 		case circleImage = "circle"
 	}
+		
+		enum API: String {
+				case baseUrl = "https://br-cat-api.herokuapp.com/pets"
+				case baseUrlBad = "https://br-cat-api.herokuapp.com/petz"
+		}
 }
