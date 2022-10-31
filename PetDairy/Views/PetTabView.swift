@@ -10,6 +10,7 @@ import SwiftUI
 struct PetTabView: View {
     @AppStorage("PetDairyCurrentTab") var selectedTab = 0
     @EnvironmentObject var model: PetModel
+    @State private var showingAlert = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -35,8 +36,13 @@ struct PetTabView: View {
                     try await model.fetchPets()
                 } catch {
                     print(error)
+                    showingAlert = true
                 }
             }
+        }
+        .alert("Network Problem", isPresented: $showingAlert) {
+        } message: {
+            Text("Couldn't connect to the network to fetch pets.\n Please check your connection.")
         }
     }
 }

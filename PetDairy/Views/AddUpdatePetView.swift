@@ -20,6 +20,7 @@ struct AddUpdatePetView: View {
     @State private var image: Image?
     @State private var selectedImage: UIImage?
     @State private var showingImagePicker = false
+    @State private var showingAlert = false
     
     var disableForm: Bool {
         nameText.isEmpty || favoriteToyText.isEmpty || ageText.isEmpty || birthdayText.isEmpty || traitText.isEmpty
@@ -74,7 +75,13 @@ struct AddUpdatePetView: View {
             onChange(of: selectedImage) { _ in loadImage() }
             
         }
+        .alert("Network Problem!", isPresented: $showingAlert) {
+            
+        } message: {
+            Text("Could not connect to server to add pet.\nPlease check your network connection")
+        }
     }
+    
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         
@@ -92,6 +99,7 @@ struct AddUpdatePetView: View {
                 try await model.addPet(pet)
             } catch {
                 print(error)
+                showingAlert = true
             }
         }
     }

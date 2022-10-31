@@ -17,15 +17,11 @@ struct PetDetailsView: View {
         GeometryReader { geo in
             HStack(spacing: 20) {
                 VStack {
-                    
                     Image(uiImage: UIImage(data: data) ?? UIImage())
-                            .resizable()
-                        
-                            .frame(width: 128, height: 128)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                        .resizable()
                     
-                    
-                    
+                        .frame(width: 128, height: 128)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
                     Button {
                         if model.favoritesContains(pet) {
                             model.removeFavorite(pet)

@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct PetDairyApp: App {
     @StateObject private var model: PetModel
-    let network = NetworkMonitor()
-    
     
     init() {
         _model = StateObject(wrappedValue: PetModel())
@@ -19,15 +17,9 @@ struct PetDairyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if !network.isActive {
-                NoNetworkView()
-                    .environmentObject(model)
-                    .environmentObject(network)
-            } else {
-                SplashScreen()
-                    .environmentObject(model)
-                    .environmentObject(network)
-            }
+            SplashScreen()
+                .environmentObject(model)
+            
         }
     }
 }
