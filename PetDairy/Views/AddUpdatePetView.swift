@@ -20,8 +20,7 @@ struct AddUpdatePetView: View {
     @State private var image: Image?
     @State private var selectedImage: UIImage?
     @State private var showingImagePicker = false
-    
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -31,7 +30,7 @@ struct AddUpdatePetView: View {
                     TextField("Age ex: 4", text: $ageText)
                     TextField("Birthday ex: 7/4/2020", text: $birthdayText)
                     TextField("Trait ex: Cute and cuddly", text: $traitText)
-                    }
+                }
                 
                 ZStack {
                     Rectangle()
@@ -52,20 +51,11 @@ struct AddUpdatePetView: View {
                 
                 
                 .navigationBarTitle("Add Pet")
-               
+                
                 .toolbar {
                     Button {
-                        let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
-                        guard let selectedImage = selectedImage else { return }
-                        model.saveImageFor(pet, image: selectedImage)
-                        Task {
-                            do {
-                             try await model.addPet(pet)
-                            } catch {
-                                print(error)
-                            }
-                        }
-                       
+                        addPet()
+                        
                         dismiss()
                     } label: {
                         Text("Save")
@@ -84,8 +74,20 @@ struct AddUpdatePetView: View {
         
         
         image = Image(uiImage: selectedImage)
-       
         
+    }
+    
+    func addPet() {
+       let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
+        guard let selectedImage = selectedImage else { return }
+        model.saveImageFor(pet, image: selectedImage)
+        Task {
+            do {
+                try await model.addPet(pet)
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
