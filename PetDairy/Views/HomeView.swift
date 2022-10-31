@@ -13,10 +13,15 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            List(model.pets) { pet in
-                PetListView(data: Data(), pet: pet)
+            List {
+                ForEach(model.pets) { pet in
+                    PetListView(data: Data(), pet: pet)
+                }
+                .onDelete(perform: model.delete)
+                
                 
             }
+            
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
