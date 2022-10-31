@@ -20,6 +20,10 @@ struct AddUpdatePetView: View {
     @State private var image: Image?
     @State private var selectedImage: UIImage?
     @State private var showingImagePicker = false
+    
+    var disableForm: Bool {
+        nameText.isEmpty || favoriteToyText.isEmpty || ageText.isEmpty || birthdayText.isEmpty || traitText.isEmpty
+    }
 
     var body: some View {
         NavigationView {
@@ -57,9 +61,11 @@ struct AddUpdatePetView: View {
                         addPet()
                         
                         dismiss()
-                    } label: {
+                    }
+                label: {
                         Text("Save")
                     }
+                .disabled(disableForm)
                 }
                 .sheet(isPresented: $showingImagePicker) {
                     ImagePicker(image: $selectedImage)
