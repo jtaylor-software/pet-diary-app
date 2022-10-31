@@ -10,19 +10,20 @@ import SwiftUI
 struct PetDetailsView: View {
     @EnvironmentObject var model: PetModel
     
+    let data: Data
     let pet: Pet
     
     var body: some View {
         GeometryReader { geo in
             HStack(spacing: 20) {
                 VStack {
-//                    if let image = pet.imageData {
-//                        Image(data: image)!
-//                            .resizable()
-//                        
-//                            .frame(width: 128, height: 128)
-//                            .clipShape(RoundedRectangle(cornerRadius: 25))
-//                    }
+                    
+                    Image(uiImage: UIImage(data: data) ?? UIImage())
+                            .resizable()
+                        
+                            .frame(width: 128, height: 128)
+                            .clipShape(RoundedRectangle(cornerRadius: 25))
+                    
                     
                     
                     Button {
@@ -54,7 +55,7 @@ struct PetDetailsView: View {
 
 struct PetDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PetDetailsView(pet: PetModel.examplePet)
+        PetDetailsView(data: Data(), pet: PetModel.examplePet)
             .environmentObject(PetModel())
     }
 }

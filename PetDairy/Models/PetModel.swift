@@ -13,7 +13,7 @@ class PetModel: ObservableObject { // Observer pattern
     @Published private(set) var pets: [Pet] = []
     @Published private (set) var favoritePets: [Pet] = []
     
-    static let examplePet = Pet(name: "Angel",favoriteToy: "String", imageString: nil, age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
+    static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
     
     func waitForAnimation() async {
         try? await Task.sleep(nanoseconds: 4_000_000_000)
@@ -34,18 +34,18 @@ class PetModel: ObservableObject { // Observer pattern
     
     func addPet(_ pet: Pet) async throws {
         let urlString = Constants.API.baseUrl
-           
-           guard let url = URL(string: urlString) else {
-               throw HttpError.badURL
-           }
-           
-        let newPet = Pet(id: UUID(), name: pet.name, favoriteToy: pet.favoriteToy, imageString: nil, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
-           
-           try await HttpClient.shared.sendData(to: url,
-                                                object: newPet,
-                                                httpMethod: HttpMethods.POST.rawValue)
-       }
-
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let newPet = Pet(id: UUID(), name: pet.name, favoriteToy: pet.favoriteToy, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
+        
+        try await HttpClient.shared.sendData(to: url,
+                                             object: newPet,
+                                             httpMethod: HttpMethods.POST.rawValue)
+    }
+    
     
     
     func getDocumentsDirectory() -> URL {
@@ -54,6 +54,33 @@ class PetModel: ObservableObject { // Observer pattern
         
         // just send back the first one, which ought to be the only one
         return paths[0]
+    }
+    
+    func loadImageFor(_ pet: Pet) -> Data? {
+        let url = getDocumentsDirectory().appendingPathComponent("\(pet.name).png")
+        do {
+            let petImageData = try Data(contentsOf: url)
+            return petImageData
+            
+        } catch {
+            print("Error loading image data from disk.")
+        }
+        return nil
+    }
+    
+    func saveImageFor(_ pet: Pet, image: UIImage) {
+        let documentsDirectory = getDocumentsDirectory()
+        let url = documentsDirectory.appendingPathComponent("\(pet.name).png")
+        print(documentsDirectory)
+        
+        // Convert to Data
+        if let data = image.pngData() {
+            do {
+                try data.write(to: url)
+            } catch {
+                print("Unable to write image data to disk.")
+            }
+        }
     }
     
     func loadPets() {

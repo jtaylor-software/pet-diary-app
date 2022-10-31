@@ -12,7 +12,7 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             List(model.favoritePets) { pet in
-                PetListView(pet: pet)
+                PetListView(data: Data(), pet: pet)
             }
             .navigationTitle("Favorite Pets")
             .navigationViewStyle(.stack)

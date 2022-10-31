@@ -14,7 +14,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List(model.pets) { pet in
-                PetListView(pet: pet)
+                PetListView(data: Data(), pet: pet)
                 
             }
             .toolbar {

@@ -55,7 +55,9 @@ struct AddUpdatePetView: View {
                
                 .toolbar {
                     Button {
-                        let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, imageString: nil, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
+                        let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
+                        guard let selectedImage = selectedImage else { return }
+                        model.saveImageFor(pet, image: selectedImage)
                         Task {
                             do {
                              try await model.addPet(pet)
@@ -82,6 +84,7 @@ struct AddUpdatePetView: View {
         
         
         image = Image(uiImage: selectedImage)
+       
         
     }
 }
