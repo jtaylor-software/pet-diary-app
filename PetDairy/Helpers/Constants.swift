@@ -8,17 +8,7 @@
 import Foundation
 
 enum Constants {
-    enum General: Int {
-        case OnboardingImageFrame = 48
-    }
-    
-    enum Onboarding: String {
-        case lightModeCatImage = "lightModeCatOnboarding"
-        case darkModeCatImage = "darkModeCatOnboarding"
-        case circleImage = "circle"
-    }
-    
-    enum API: String {
+   enum API: String {
         static let baseUrl = "https://br-pet-api.herokuapp.com/pets"
         case baseUrlBad = "https://br-pet-api.herokuapp.com/petz"
         

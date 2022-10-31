@@ -25,7 +25,7 @@ struct AddUpdatePetView: View {
     var disableForm: Bool {
         nameText.isEmpty || favoriteToyText.isEmpty || ageText.isEmpty || birthdayText.isEmpty || traitText.isEmpty
     }
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -64,8 +64,8 @@ struct AddUpdatePetView: View {
                         dismiss()
                     }
                 label: {
-                        Text("Save")
-                    }
+                    Text("Save")
+                }
                 .disabled(disableForm)
                 }
                 .sheet(isPresented: $showingImagePicker) {
@@ -91,7 +91,7 @@ struct AddUpdatePetView: View {
     }
     
     func addPet() {
-       let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
+        let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
         guard let selectedImage = selectedImage else { return }
         model.saveImageFor(pet, image: selectedImage)
         Task {

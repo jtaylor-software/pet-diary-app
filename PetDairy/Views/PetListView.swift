@@ -20,10 +20,8 @@ struct PetListView: View {
             HStack {
                 Image(uiImage: UIImage(data: data) ?? UIImage())
                     .resizable()
-                        .frame(width: 128, height: 128)
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                
-                
+                    .frame(width: 128, height: 128)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
                 Text(pet.name)
             }
         }
