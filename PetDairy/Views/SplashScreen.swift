@@ -13,6 +13,7 @@ struct SplashScreen: View {
     @State private var isActive = false
     
     @EnvironmentObject var model: PetModel
+    @EnvironmentObject var network: NetworkMonitor
     
     var body: some View {
         VStack {
@@ -49,6 +50,7 @@ struct SplashScreen: View {
                 await model.waitForAnimation()
                 try await model.fetchPets()
                 self.isActive = true
+                network.monitor.cancel()
             }
         }
         
