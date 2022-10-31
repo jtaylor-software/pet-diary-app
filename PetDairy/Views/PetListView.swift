@@ -15,18 +15,13 @@ struct PetListView: View {
             PetDetailView(pet: pet)
         } label: {
             HStack {
-                AsyncImage(url: URL(string: pet.imageString ?? "")) { image in
-                    image.resizable()
-                } placeholder: {
-                    Color.gray
-                }
-                .frame(width: 128, height: 128)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
+//                if let image = pet.imageData {
+//                    Image(data: image)!
+//                        .frame(width: 128, height: 128)
+//                        .clipShape(RoundedRectangle(cornerRadius: 25))
+//                }
+                
                 Text(pet.name)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                }
             }
         }
     }
@@ -34,6 +29,6 @@ struct PetListView: View {
 
 struct PetListView_Previews: PreviewProvider {
     static var previews: some View {
-				PetListView(pet: PetModel.examplePet)
+        PetListView(pet: PetModel.examplePet)
     }
 }

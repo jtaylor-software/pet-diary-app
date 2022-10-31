@@ -14,8 +14,7 @@ struct PetDairyApp: App {
     
     
     init() {
-        let webservice = Webservice()
-        _model = StateObject(wrappedValue: PetModel(webservice: webservice))
+        _model = StateObject(wrappedValue: PetModel())
     }
     
     var body: some Scene {

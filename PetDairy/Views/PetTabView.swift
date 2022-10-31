@@ -32,7 +32,7 @@ struct PetTabView: View {
         .task {
             if model.pets.isEmpty {
                 do {
-                    try await model.populatePets()
+                    try await model.fetchPets()
                 } catch {
                     print(error)
                 }
@@ -44,20 +44,20 @@ struct PetTabView: View {
 struct PetTabView_Previews: PreviewProvider {
     static var previews: some View {
         PetTabView()
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         PetTabView()
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         PetTabView()
             .preferredColorScheme(.dark)
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         PetTabView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         PetTabView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 926, height: 428))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
     }
 }

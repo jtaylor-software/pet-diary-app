@@ -15,8 +15,8 @@ struct Pet: Identifiable, Hashable, Codable {
 		var id: UUID?
 		let name: String
 		var favoriteToy: String?
-		let imageString: String?
-		var age: Int16
+		var imageString: String?
+		var age: Int
 		let birthday: String
 		var trait: String
 }

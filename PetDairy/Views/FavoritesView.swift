@@ -23,20 +23,20 @@ struct FavoritesView: View {
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         FavoritesView()
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         FavoritesView()
             .preferredColorScheme(.dark)
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         FavoritesView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         FavoritesView()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 926, height: 428))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
     }
 }

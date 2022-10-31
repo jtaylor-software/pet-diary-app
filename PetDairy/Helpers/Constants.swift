@@ -8,18 +8,19 @@
 import Foundation
 
 enum Constants {
-	enum General: Int {
-		case OnboardingImageFrame = 48
-	}
-	
-	enum Onboarding: String {
-		case lightModeCatImage = "lightModeCatOnboarding"
-		case darkModeCatImage = "darkModeCatOnboarding"
-		case circleImage = "circle"
-	}
-		
-		enum API: String {
-				case baseUrl = "https://br-cat-api.herokuapp.com/pets"
-				case baseUrlBad = "https://br-cat-api.herokuapp.com/petz"
-		}
+    enum General: Int {
+        case OnboardingImageFrame = 48
+    }
+    
+    enum Onboarding: String {
+        case lightModeCatImage = "lightModeCatOnboarding"
+        case darkModeCatImage = "darkModeCatOnboarding"
+        case circleImage = "circle"
+    }
+    
+    enum API: String {
+        static let baseUrl = "https://br-pet-api.herokuapp.com/pets"
+        case baseUrlBad = "https://br-pet-api.herokuapp.com/petz"
+        
+    }
 }

@@ -8,31 +8,45 @@
 import Foundation
 import SwiftUI
 
+
 class PetModel: ObservableObject { // Observer pattern
     @Published private(set) var pets: [Pet] = []
     @Published private (set) var favoritePets: [Pet] = []
     
-    let webservice: Webservice
-    
-    init(webservice: Webservice) {
-        self.webservice = webservice
-        loadPets()
-    }
-    
-    static let examplePet = Pet(name: "Angel",favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
+    static let examplePet = Pet(name: "Angel",favoriteToy: "String", imageString: nil, age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
     
     func waitForAnimation() async {
         try? await Task.sleep(nanoseconds: 4_000_000_000)
     }
     
     @MainActor
-    func populatePets() async throws {
-        if pets.isEmpty {
-            pets = try await webservice.getPets()
-            savePets()
-            
+    func fetchPets() async throws {
+        let urlString = Constants.API.baseUrl
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
         }
+        
+        let petResponse: [Pet] = try await HttpClient.shared.fetch(url: url)
+        
+        self.pets = petResponse
     }
+    
+    func addPet(_ pet: Pet) async throws {
+        let urlString = Constants.API.baseUrl
+           
+           guard let url = URL(string: urlString) else {
+               throw HttpError.badURL
+           }
+           
+        let newPet = Pet(id: UUID(), name: pet.name, favoriteToy: pet.favoriteToy, imageString: nil, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
+           
+           try await HttpClient.shared.sendData(to: url,
+                                                object: newPet,
+                                                httpMethod: HttpMethods.POST.rawValue)
+       }
+
+    
     
     func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
@@ -63,6 +77,7 @@ class PetModel: ObservableObject { // Observer pattern
             print("Error saving plist data")
         }
     }
+    
     
     func favoritesContains(_ pet: Pet) -> Bool {
         favoritePets.contains(pet)

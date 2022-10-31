@@ -15,68 +15,64 @@ struct SplashScreen: View {
     @EnvironmentObject var model: PetModel
     
     var body: some View {
-        ZStack {
-            Text("Welcome to Pet Diary!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            VStack {
-                if isActive {
-                    PetTabView()
-                } else {
-                    ForEach(emojis) { emoji in
-                        Text(emoji.emoji)
-                            .font(.largeTitle)
-                            .rotationEffect(.degrees(emoji.rotation))
-                            .offset(x: emoji.x, y: emojiOffset)
-                            .onAppear() {
-                                Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
-                                    if (emojiOffset >= 400) {
-                                        if (resetEmojiAnimation) {
-                                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) {_ in
-                                                emojiOffset = 0
-                                                resetEmojiAnimation.toggle()
-                                            }
-                                            resetEmojiAnimation = false
-                                            
+        VStack {
+            if isActive {
+                PetTabView()
+            } else {
+                ForEach(emojis) { emoji in
+                    Text(emoji.emoji)
+                        .font(.largeTitle)
+                        .rotationEffect(.degrees(emoji.rotation))
+                        .offset(x: emoji.x, y: emojiOffset)
+                        .onAppear() {
+                            Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
+                                if (emojiOffset >= 400) {
+                                    if (resetEmojiAnimation) {
+                                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) {_ in
+                                            emojiOffset = 0
+                                            resetEmojiAnimation.toggle()
                                         }
-                                    }
-                                    withAnimation(.easeInOut(duration: 0.05)) {
-                                        emojiOffset += 1
+                                        resetEmojiAnimation = false
+                                        
                                     }
                                 }
+                                withAnimation(.easeInOut(duration: 0.05)) {
+                                    emojiOffset += 1
+                                }
                             }
-                    }
-                }
-            }
-            .onAppear {
-                Task {
-                    await model.waitForAnimation()
-                    try await model.populatePets()
-                    self.isActive = true
+                        }
                 }
             }
         }
+        .onAppear {
+            Task {
+                await model.waitForAnimation()
+                try await model.fetchPets()
+                self.isActive = true
+            }
+        }
+        
     }
 }
 
 struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreen()
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         SplashScreen()
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         SplashScreen()
             .preferredColorScheme(.dark)
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         SplashScreen()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 568, height: 320))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
         SplashScreen()
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 926, height: 428))
-            .environmentObject(PetModel(webservice: Webservice()))
+            .environmentObject(PetModel())
     }
 }
 
