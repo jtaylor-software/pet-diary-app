@@ -19,17 +19,16 @@ struct HomeView: View {
                 }
                 .onDelete(perform: model.delete)
                 
-                
             }
             
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        isShowingAddPet = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
+                EditButton()
+                Button {
+                    isShowingAddPet = true
+                } label: {
+                    Image(systemName: "plus")
                 }
+                
             }
             .sheet(isPresented: $isShowingAddPet) {
                 AddUpdatePetView()
