@@ -49,6 +49,7 @@ struct SplashScreen: View {
             Task {
                 await model.waitForAnimation()
                 try await model.fetchPets()
+                try await model.fetchFacts()
                 self.isActive = true
                 network.monitor.cancel()
             }

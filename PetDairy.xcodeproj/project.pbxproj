@@ -20,6 +20,7 @@
 		8F947DAA290F2AFA00EFE7FD /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F947DA9290F2AFA00EFE7FD /* HttpClient.swift */; };
 		8F982F492910742D00C2373C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F982F482910742D00C2373C /* NetworkMonitor.swift */; };
 		8F982F4B2910743D00C2373C /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F982F4A2910743D00C2373C /* NoNetworkView.swift */; };
+		8FA6B1BE2911A15200D8D991 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA6B1BD2911A15200D8D991 /* Fact.swift */; };
 		8FB35AB528D643DD004C4F08 /* PetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB35AB428D643DD004C4F08 /* PetDetailsView.swift */; };
 		8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB35AB628D647E4004C4F08 /* PetListView.swift */; };
 		8FB4255D28D50E9300FECC9C /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB4255C28D50E9300FECC9C /* PetDetailView.swift */; };
@@ -62,6 +63,7 @@
 		8F947DA9290F2AFA00EFE7FD /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		8F982F482910742D00C2373C /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		8F982F4A2910743D00C2373C /* NoNetworkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
+		8FA6B1BD2911A15200D8D991 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		8FB35AB428D643DD004C4F08 /* PetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailsView.swift; sourceTree = "<group>"; };
 		8FB35AB628D647E4004C4F08 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
 		8FB4255C28D50E9300FECC9C /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				8F014E1528B81C8E00795618 /* Pet.swift */,
 				8FFE885928DD2C8E0059FAC7 /* PetModel.swift */,
+				8FA6B1BD2911A15200D8D991 /* Fact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				8F947DA6290EF5CF00EFE7FD /* AddUpdatePetView.swift in Sources */,
 				8F86D2FE28AFEBAA006436AC /* PetDairyApp.swift in Sources */,
 				8F86D31028AFEDCB006436AC /* Constants.swift in Sources */,
+				8FA6B1BE2911A15200D8D991 /* Fact.swift in Sources */,
 				8F947DA2290EF55900EFE7FD /* ImagePicker.swift in Sources */,
 				8FFE885A28DD2C8E0059FAC7 /* PetModel.swift in Sources */,
 				8FB35AB728D647E4004C4F08 /* PetListView.swift in Sources */,

@@ -12,6 +12,7 @@ import SwiftUI
 class PetModel: ObservableObject { // Observer pattern
     @Published private(set) var pets: [Pet] = []
     @Published private (set) var favoritePets: [Pet] = []
+    @Published private (set) var petFacts: [Fact] = []
     
     static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
     
@@ -21,7 +22,7 @@ class PetModel: ObservableObject { // Observer pattern
     
     @MainActor
     func fetchPets() async throws {
-        let urlString = Constants.API.baseUrl
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
         
         guard let url = URL(string: urlString) else {
             throw HttpError.badURL
@@ -30,6 +31,23 @@ class PetModel: ObservableObject { // Observer pattern
         let petResponse: [Pet] = try await HttpClient.shared.fetch(url: url)
         
         self.pets = petResponse
+    }
+    
+    @MainActor
+    func fetchFacts() async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.facts
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let factsResponse: [Fact] = try await HttpClient.shared.fetch(url: url)
+        
+        self.petFacts = factsResponse
+    }
+    
+    func randomPetFact() -> String {
+        petFacts.randomElement()?.fact ?? "Cats mark you as their territory when they rub their faces and bodies against you, as they have scent glands in those areas."
     }
     
     func delete(at offsets: IndexSet) {
@@ -57,7 +75,7 @@ class PetModel: ObservableObject { // Observer pattern
     
     @MainActor
     func addPet(_ pet: Pet) async throws {
-        let urlString = Constants.API.baseUrl
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
         
         guard let url = URL(string: urlString) else {
             throw HttpError.badURL
@@ -96,7 +114,6 @@ class PetModel: ObservableObject { // Observer pattern
     func saveImageFor(_ pet: Pet, image: UIImage) {
         let documentsDirectory = getDocumentsDirectory()
         let url = documentsDirectory.appendingPathComponent("\(pet.name).png")
-        print(documentsDirectory)
         
         // Convert to Data
         if let data = image.pngData() {

@@ -9,8 +9,13 @@ import Foundation
 
 enum Constants {
    enum API: String {
-        static let baseUrl = "https://br-pet-api.herokuapp.com/pets"
+        static let baseUrl = "https://br-pet-api.herokuapp.com/"
         case baseUrlBad = "https://br-pet-api.herokuapp.com/petz"
+       
+       enum Endpoint {
+           static let facts = "facts"
+           static let pets = "pets"
+       }
         
     }
 }
