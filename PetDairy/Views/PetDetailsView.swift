@@ -10,6 +10,7 @@ import SwiftUI
 struct PetDetailsView: View {
     @EnvironmentObject var model: PetModel
     @State private var fact = ""
+    @State private var showingUpdate = false
     
     let data: Data
     let pet: Pet
@@ -32,11 +33,20 @@ struct PetDetailsView: View {
                             }
                         } label: {
                             Text(model.favoritesContains(pet) ? "Remove favorite" : "Favorite")
-                                .padding()
+                                .padding(.bottom, 5)
+                        }
+                        
+                        Button {
+                           showingUpdate = true
+                        } label: {
+                            Text("Update Pet Information")
                         }
                         
                     }
                     .padding(.leading)
+                    .sheet(isPresented: $showingUpdate) {
+                        AddUpdatePetView(pet: pet)
+                    }
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Name: \(pet.name)")

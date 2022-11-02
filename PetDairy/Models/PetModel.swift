@@ -89,6 +89,29 @@ class PetModel: ObservableObject { // Observer pattern
         pets.append(newPet)
     }
     
+    @MainActor
+    func updatePet(_ pet: Pet) async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let updatePet = Pet(id: pet.id!, name: pet.name, favoriteToy: pet.favoriteToy, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
+        
+        try await HttpClient.shared.sendData(to: url,
+                                             object: updatePet,
+                                             httpMethod: HttpMethods.PUT.rawValue)
+        // Find index of pet in pets
+        guard let index = pets.firstIndex(of: pet) else { return }
+        // Remove old pet from pets array
+        pets.remove(at: index)
+        
+        // Insert updated pet at index
+        
+        pets.insert(updatePet, at: index)
+    }
+    
     
     
     func getDocumentsDirectory() -> URL {

@@ -22,6 +22,8 @@ struct AddUpdatePetView: View {
     @State private var showingImagePicker = false
     @State private var showingAlert = false
     
+    var pet: Pet?
+    
     var disableForm: Bool {
         nameText.isEmpty || favoriteToyText.isEmpty || ageText.isEmpty || birthdayText.isEmpty || traitText.isEmpty
     }
@@ -55,16 +57,23 @@ struct AddUpdatePetView: View {
                 }
                 
                 
-                .navigationBarTitle("Add Pet")
+                .navigationBarTitle(pet == nil ? "Add Pet" : "Update Pet")
+                .onAppear {
+                    updatePet()
+                }
                 
                 .toolbar {
                     Button {
-                        addPet()
+                        if let pet = pet {
+                            addUpatePet(pet: pet)
+                        } else {
+                            addUpatePet(pet: nil)
+                        }
                         
                         dismiss()
                     }
                 label: {
-                    Text("Save")
+                    Text(pet == nil ? "Save" : "Update")
                 }
                 .disabled(disableForm)
                 }
@@ -89,17 +98,50 @@ struct AddUpdatePetView: View {
         image = Image(uiImage: selectedImage)
         
     }
+    func updatePet() {
+        guard let pet = pet else { return }
+        nameText = pet.name
+        favoriteToyText = pet.favoriteToy ?? "Everything!"
+        ageText = String(pet.age)
+        birthdayText = pet.birthday
+        traitText = pet.trait
+        
+        selectedImage = UIImage(data: model.loadImageFor(pet) ?? Data())
+        
+        
+        addUpatePet(pet: pet)
+    }
     
-    func addPet() {
-        let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
-        guard let selectedImage = selectedImage else { return }
-        model.saveImageFor(pet, image: selectedImage)
-        Task {
-            do {
-                try await model.addPet(pet)
-            } catch {
-                print(error)
-                showingAlert = true
+    func addUpatePet(pet: Pet?) {
+        if var pet = pet {
+            // Update Pet
+            guard let selectedImage = selectedImage else { return }
+            model.saveImageFor(pet, image: selectedImage)
+            
+            pet.age = Int(ageText) ?? 1
+            pet.favoriteToy = favoriteToyText
+            pet.trait = traitText
+            
+            Task {
+                do {
+                    try await model.updatePet(pet)
+                } catch {
+                    print(error)
+                    showingAlert = true
+                }
+            }
+        } else {
+            // Adding Pet
+            let pet = Pet(id: UUID(), name: nameText, favoriteToy: favoriteToyText, age: Int(ageText) ?? 1, birthday: birthdayText, trait: traitText)
+            guard let selectedImage = selectedImage else { return }
+            model.saveImageFor(pet, image: selectedImage)
+            Task {
+                do {
+                    try await model.addPet(pet)
+                } catch {
+                    print(error)
+                    showingAlert = true
+                }
             }
         }
     }
@@ -107,6 +149,6 @@ struct AddUpdatePetView: View {
 
 struct AddUpdatePetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddUpdatePetView()
+        AddUpdatePetView(pet: PetModel.examplePet)
     }
 }
