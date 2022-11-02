@@ -17,7 +17,7 @@ class PetModel: ObservableObject { // Observer pattern
     static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
     
     func waitForAnimation() async {
-        try? await Task.sleep(nanoseconds: 4_000_000_000)
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
     }
     
     @MainActor
