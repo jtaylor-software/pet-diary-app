@@ -86,7 +86,6 @@ class PetModel: ObservableObject { // Observer pattern
         try await HttpClient.shared.sendData(to: url,
                                              object: newPet,
                                              httpMethod: HttpMethods.POST.rawValue)
-        pets.append(newPet)
     }
     
     @MainActor
@@ -102,14 +101,6 @@ class PetModel: ObservableObject { // Observer pattern
         try await HttpClient.shared.sendData(to: url,
                                              object: updatePet,
                                              httpMethod: HttpMethods.PUT.rawValue)
-        // Find index of pet in pets
-        guard let index = pets.firstIndex(of: pet) else { return }
-        // Remove old pet from pets array
-        pets.remove(at: index)
-        
-        // Insert updated pet at index
-        
-        pets.insert(updatePet, at: index)
     }
     
     
@@ -122,7 +113,7 @@ class PetModel: ObservableObject { // Observer pattern
         return paths[0]
     }
     
-    func loadImageFor(_ pet: Pet) -> Data? {
+    func loadImageFor(_ pet: Pet) -> Data {
         let url = getDocumentsDirectory().appendingPathComponent("\(pet.name).png")
         do {
             let petImageData = try Data(contentsOf: url)
@@ -131,7 +122,7 @@ class PetModel: ObservableObject { // Observer pattern
         } catch {
             print("Error loading image data from disk.")
         }
-        return nil
+        return (UIImage(named: "placeholder")?.pngData())!
     }
     
     func saveImageFor(_ pet: Pet, image: UIImage) {

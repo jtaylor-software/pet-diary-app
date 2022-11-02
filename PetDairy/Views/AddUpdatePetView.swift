@@ -106,7 +106,7 @@ struct AddUpdatePetView: View {
         birthdayText = pet.birthday
         traitText = pet.trait
         
-        selectedImage = UIImage(data: model.loadImageFor(pet) ?? Data())
+        selectedImage = UIImage(data: model.loadImageFor(pet) )
         
         
         addUpatePet(pet: pet)
@@ -138,6 +138,7 @@ struct AddUpdatePetView: View {
             Task {
                 do {
                     try await model.addPet(pet)
+                    try await model.fetchPets()
                 } catch {
                     print(error)
                     showingAlert = true

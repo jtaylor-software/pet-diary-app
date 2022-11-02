@@ -46,7 +46,7 @@ struct PetDetailsView: View {
                     }
                     .padding(.leading)
                     .sheet(isPresented: $showingUpdate, onDismiss: {
-                        data = model.loadImageFor(pet) ?? Data()
+                        data = model.loadImageFor(pet) 
                         Task {
                             do {
                                 try await model.fetchPets()

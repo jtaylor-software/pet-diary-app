@@ -26,7 +26,7 @@ struct PetListView: View {
             }
         }
         .onAppear {
-            data = model.loadImageFor(pet) ?? Data()
+            data = model.loadImageFor(pet) 
         }
     }
 }
