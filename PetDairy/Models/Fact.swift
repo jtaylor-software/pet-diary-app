@@ -7,7 +7,9 @@
 
 import Foundation
 
-class Fact: NSObject, Identifiable, Codable {
+struct Fact: Identifiable, Codable {
     var id: UUID?
     var fact: String
+    
+    static let placeholder = Fact(fact: "Cats mark you as their territory when they rub their faces and bodies against you, as they have scent glands in those areas.")
 }

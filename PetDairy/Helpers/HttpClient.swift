@@ -67,4 +67,17 @@ class HttpClient {
             throw HttpError.badResponse
         }
     }
+    
+    @MainActor
+        func fetchFacts() async throws -> Fact {
+            let urlString = Constants.API.baseUrl + Constants.API.Endpoint.facts
+            
+            guard let url = URL(string: urlString) else {
+                throw HttpError.badURL
+            }
+            
+            let factsResponse: [Fact] = try await HttpClient.shared.fetch(url: url)
+            
+            return factsResponse.randomElement() ?? Fact(fact: "Cats mark you as their territory when they rub their faces and bodies against you, as they have scent glands in those areas.")
+        }
 }
