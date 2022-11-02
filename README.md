@@ -11,6 +11,6 @@ This app allows you to manage your pets information in a single place.
 
 ### TODO:
  - Improve UI
- - Update info for pets.
+ 
   
   
