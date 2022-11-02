@@ -12,8 +12,8 @@ struct PetDetailsView: View {
     @State private var fact = ""
     @State private var showingUpdate = false
     @State private var showingAlert = false
+    @State var data: Data
     
-    let data: Data
     let pet: Pet
     
     var body: some View {
@@ -46,6 +46,7 @@ struct PetDetailsView: View {
                     }
                     .padding(.leading)
                     .sheet(isPresented: $showingUpdate, onDismiss: {
+                        data = model.loadImageFor(pet) ?? Data()
                         Task {
                             do {
                                 try await model.fetchPets()
