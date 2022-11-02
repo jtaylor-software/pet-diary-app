@@ -51,26 +51,27 @@ class PetModel: ObservableObject { // Observer pattern
     }
     
     func delete(at offsets: IndexSet) {
-        offsets.forEach { i in
-            guard let petID = pets[i].id else {
-                return
-            }
-            
-            guard let url = URL(string: Constants.API.baseUrl + "/\(petID)") else {
-                return
-            }
-            
-            Task {
-                do {
-                    try await HttpClient.shared.delete(at: petID, url: url)
-                } catch {
-                    print("❌ error: \(error)")
+            offsets.forEach { i in
+                guard let petID = pets[i].id else {
+                    return
+                }
+                
+                guard let url = URL(string: Constants.API.baseUrl + Constants.API.Endpoint.pets + "/\(petID)") else {
+                    return
+                }
+                
+                Task {
+                    do {
+                        try await HttpClient.shared.delete(at: petID, url: url)
+                    } catch {
+                        print("❌ error: \(error)")
+                    }
                 }
             }
+            
+            pets.remove(atOffsets: offsets)
         }
-        
-        pets.remove(atOffsets: offsets)
-    }
+
     
     
     @MainActor
