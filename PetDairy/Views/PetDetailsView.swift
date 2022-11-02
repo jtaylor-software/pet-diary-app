@@ -11,6 +11,7 @@ struct PetDetailsView: View {
     @EnvironmentObject var model: PetModel
     @State private var fact = ""
     @State private var showingUpdate = false
+    @State private var showingAlert = false
     
     let data: Data
     let pet: Pet
@@ -37,16 +38,28 @@ struct PetDetailsView: View {
                         }
                         
                         Button {
-                           showingUpdate = true
+                            showingUpdate = true
                         } label: {
                             Text("Update Pet Information")
                         }
                         
                     }
                     .padding(.leading)
-                    .sheet(isPresented: $showingUpdate) {
+                    .sheet(isPresented: $showingUpdate, onDismiss: {
+                        Task {
+                            do {
+                                try await model.fetchPets()
+                            } catch {
+                                showingAlert = true
+                            }
+                        }
+                    }) {
                         AddUpdatePetView(pet: pet)
                     }
+                    .alert("Network Problem", isPresented: $showingAlert) {
+                            } message: {
+                                Text("Couldn't connect to the network to fetch pets.\n Please check your connection.")
+                            }
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("Name: \(pet.name)")
@@ -75,7 +88,7 @@ struct PetDetailsView: View {
             .padding()
             
         }
-       
+        
     }
     
 }

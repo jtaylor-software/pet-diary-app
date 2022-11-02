@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PetDetailView: View {
+    @EnvironmentObject var model: PetModel
+    
     let data: Data
     let pet: Pet
     
