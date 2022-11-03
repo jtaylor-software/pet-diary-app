@@ -8,7 +8,7 @@
 import XCTest
 @testable import Pet_Diary
 
-final class Pet_DairyTests: XCTestCase {
+final class Pet_DiaryTests: XCTestCase {
     var expectation: XCTestExpectation!
     let timeout: TimeInterval = 5
     
@@ -30,7 +30,7 @@ final class Pet_DairyTests: XCTestCase {
     }
     
     func test_decodePets() {
-        let url = URL(string: Constants.API.baseUrl)!
+        let url = URL(string: Constants.API.baseUrl + Constants.API.Endpoint.pets)!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             defer { self.expectation.fulfill() }

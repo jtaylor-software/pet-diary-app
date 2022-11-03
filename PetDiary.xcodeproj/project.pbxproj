@@ -40,13 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8F5166BD2906068D0074E203 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8F86D2F228AFEBAA006436AC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8F86D2F928AFEBAA006436AC;
-			remoteInfo = PetDairy;
-		};
 		8FBC1226291319580080F5A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F86D2F228AFEBAA006436AC /* Project object */;
@@ -79,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		8F014E1528B81C8E00795618 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
-		8F5166B72906068D0074E203 /* Pet DairyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet DairyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5C08EF28D628FE002FDB95 /* PetTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTabView.swift; sourceTree = "<group>"; };
 		8F86D2FA28AFEBAA006436AC /* Pet Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F86D2FD28AFEBAA006436AC /* PetDairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDairyApp.swift; sourceTree = "<group>"; };
@@ -105,20 +97,13 @@
 		8FBC1221291319570080F5A7 /* PetDiaryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDiaryWidget.swift; sourceTree = "<group>"; };
 		8FBC1223291319580080F5A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FBC1225291319580080F5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet DairyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FDFC58629049AA300EEE409 /* Pet DiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pet DiaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDFC58829049AA300EEE409 /* Pet_DiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_DiaryTests.swift; sourceTree = "<group>"; };
 		8FFD471528F22D5A006DC53E /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8FFE885928DD2C8E0059FAC7 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8F5166B42906068D0074E203 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F86D2F728AFEBAA006436AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,8 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				8F86D2FA28AFEBAA006436AC /* Pet Diary.app */,
-				8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */,
-				8F5166B72906068D0074E203 /* Pet DairyUITests.xctest */,
+				8FDFC58629049AA300EEE409 /* Pet DiaryTests.xctest */,
 				8FBC1218291319570080F5A7 /* PetDiaryWidgetExtension.appex */,
 			);
 			name = Products;
@@ -265,24 +249,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F5166B62906068D0074E203 /* Pet DairyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8F5166C12906068D0074E203 /* Build configuration list for PBXNativeTarget "Pet DairyUITests" */;
-			buildPhases = (
-				8F5166B32906068D0074E203 /* Sources */,
-				8F5166B42906068D0074E203 /* Frameworks */,
-				8F5166B52906068D0074E203 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8F5166BE2906068D0074E203 /* PBXTargetDependency */,
-			);
-			name = "Pet DairyUITests";
-			productName = "Pet DairyUITests";
-			productReference = 8F5166B72906068D0074E203 /* Pet DairyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		8F86D2F928AFEBAA006436AC /* PetDiary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F86D30828AFEBAC006436AC /* Build configuration list for PBXNativeTarget "PetDiary" */;
@@ -321,9 +287,9 @@
 			productReference = 8FBC1218291319570080F5A7 /* PetDiaryWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		8FDFC58529049AA300EEE409 /* Pet DairyTests */ = {
+		8FDFC58529049AA300EEE409 /* Pet DiaryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DairyTests" */;
+			buildConfigurationList = 8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DiaryTests" */;
 			buildPhases = (
 				8FDFC58229049AA300EEE409 /* Sources */,
 				8FDFC58329049AA300EEE409 /* Frameworks */,
@@ -334,9 +300,9 @@
 			dependencies = (
 				8FDFC58B29049AA300EEE409 /* PBXTargetDependency */,
 			);
-			name = "Pet DairyTests";
+			name = "Pet DiaryTests";
 			productName = "Pet DairyTests";
-			productReference = 8FDFC58629049AA300EEE409 /* Pet DairyTests.xctest */;
+			productReference = 8FDFC58629049AA300EEE409 /* Pet DiaryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -349,10 +315,6 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					8F5166B62906068D0074E203 = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = 8F86D2F928AFEBAA006436AC;
-					};
 					8F86D2F928AFEBAA006436AC = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -381,21 +343,13 @@
 			projectRoot = "";
 			targets = (
 				8F86D2F928AFEBAA006436AC /* PetDiary */,
-				8FDFC58529049AA300EEE409 /* Pet DairyTests */,
-				8F5166B62906068D0074E203 /* Pet DairyUITests */,
+				8FDFC58529049AA300EEE409 /* Pet DiaryTests */,
 				8FBC1217291319570080F5A7 /* PetDiaryWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8F5166B52906068D0074E203 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F86D2F828AFEBAA006436AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,13 +378,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8F5166B32906068D0074E203 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F86D2F628AFEBAA006436AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,11 +425,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8F5166BE2906068D0074E203 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8F86D2F928AFEBAA006436AC /* PetDiary */;
-			targetProxy = 8F5166BD2906068D0074E203 /* PBXContainerItemProxy */;
-		};
 		8FBC1227291319580080F5A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FBC1217291319570080F5A7 /* PetDiaryWidgetExtension */;
@@ -496,40 +438,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		8F5166BF2906068D0074E203 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PetDairy;
-			};
-			name = Debug;
-		};
-		8F5166C02906068D0074E203 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PetDairy;
-			};
-			name = Release;
-		};
 		8F86D30628AFEBAC006436AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -779,12 +687,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DiaryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Dairy.app/Pet Dairy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Diary.app/Pet Diary";
 			};
 			name = Debug;
 		};
@@ -797,27 +705,18 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DairyTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bytesrandom.Pet-DiaryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Dairy.app/Pet Dairy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pet Diary.app/Pet Diary";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F5166C12906068D0074E203 /* Build configuration list for PBXNativeTarget "Pet DairyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F5166BF2906068D0074E203 /* Debug */,
-				8F5166C02906068D0074E203 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8F86D2F528AFEBAA006436AC /* Build configuration list for PBXProject "PetDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -845,7 +744,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DairyTests" */ = {
+		8FDFC58E29049AA300EEE409 /* Build configuration list for PBXNativeTarget "Pet DiaryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FDFC58C29049AA300EEE409 /* Debug */,
