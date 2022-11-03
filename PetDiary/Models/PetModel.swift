@@ -9,12 +9,17 @@ import Foundation
 import SwiftUI
 
 
-final class PetModel: ObservableObject { // Observer pattern
+final class PetModel: ObservableObject {
     @Published private(set) var pets: [Pet] = []
     @Published private (set) var favoritePets: [Pet] = []
     @Published private (set) var petFacts: [Fact] = []
     
     static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Lovable and lazy.")
+    
+    init() {
+        loadPets()
+        loadFavorites()
+    }
     
     func waitForAnimation() async {
         try? await Task.sleep(nanoseconds: 3_000_000_000)
@@ -31,6 +36,7 @@ final class PetModel: ObservableObject { // Observer pattern
         let petResponse: [Pet] = try await HttpClient.shared.fetch(url: url)
         
         self.pets = petResponse
+        savePets()
     }
     
     @MainActor
@@ -70,6 +76,7 @@ final class PetModel: ObservableObject { // Observer pattern
             }
             
             pets.remove(atOffsets: offsets)
+            savePets()
         }
 
     
@@ -87,6 +94,8 @@ final class PetModel: ObservableObject { // Observer pattern
         try await HttpClient.shared.sendData(to: url,
                                              object: newPet,
                                              httpMethod: HttpMethods.POST.rawValue)
+        pets.append(newPet)
+        savePets()
     }
     
     @MainActor
@@ -102,6 +111,14 @@ final class PetModel: ObservableObject { // Observer pattern
         try await HttpClient.shared.sendData(to: url,
                                              object: updatePet,
                                              httpMethod: HttpMethods.PUT.rawValue)
+        
+        // Find index of pet in pets array
+        guard let index = pets.firstIndex(of: pet) else { return }
+        // Remove pet at found index
+        pets.remove(at: index)
+        // Insert updated pet at that index
+        pets.insert(updatePet, at: index)
+        savePets()
     }
     
     
