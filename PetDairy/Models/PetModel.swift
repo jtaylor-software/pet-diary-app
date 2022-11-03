@@ -6,95 +6,199 @@
 //
 
 import Foundation
+import SwiftUI
 
-/*
- Aggragate root - part of MV Design Pattern
- */
 
-@MainActor
-class PetModel: ObservableObject { // Observer pattern
-		@Published private(set) var pets: [Pet] = []
-		@Published private (set) var favoritePets: [Pet] = []
-		
-		let webservice = Webservice()
-		
-		static let examplePet = Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
-		
-		init() {
-				loadFavorites()
-		}
-		
-		private func addPet(_ pet: Pet) {
-				pets.append(pet)
-		}
-		
-		func addExamplePets() {
-				if pets.isEmpty {
-						let pets = [
-								Pet(name: "Angel", type: .cat, favoriteToy: "String", imageString: "angel", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy."),
-								Pet(name: "Opal", type: .cat, favoriteToy: nil, imageString: "opal", age: 6, birthday: "9/1/2016", trait: "An energetic destroyer of all things!"),
-								Pet(name: "Kitty", type: .cat, favoriteToy: "Laser Pointer", imageString: "kitty", age: 16,birthday: "6/1/1997", trait: "The eater of treats."),
-								Pet(name: "Shinn", type: .cat, favoriteToy: nil, imageString: "shinn", age: 4,birthday: "5/4/2018", trait: "A cuddle bug"),
-								Pet(name: "Abbie", type: .dog, favoriteToy: "Ball", imageString: "abbie", age: 5,birthday: "7/6/2017", trait: "A lover of snow."),
-								Pet(name: "Rhea", type: .dog, favoriteToy: "Rope", imageString: "rhea", age: 5,birthday: "4/3/2017", trait: "Exciteable!")
-						]
-						
-						for pet in pets {
-								addPet(pet)
-						}
-				}
-				
-		}
-		
-		func favoritesContains(_ pet: Pet) -> Bool {
-				favoritePets.contains(pet)
-		}
-		
-		func addFavorite(_ pet: Pet) {
-				objectWillChange.send()
-				favoritePets.insert(pet, at: 0)
-				saveFavorites()
-		}
-		
-		func removeFavorite(_ pet: Pet) {
-				guard let index = favoritePets.firstIndex(of: pet) else { return }
-				favoritePets.remove(at: index)
-				objectWillChange.send()
-				
-				saveFavorites()
-		}
-		
-		func getDocumentsDirectory() -> URL {
-				// find all possible documents directories for this user
-				let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-				
-				// just send back the first one, which ought to be the only one
-				return paths[0]
-		}
-		
-		func loadFavorites() {
-				// Memento pattern
-				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
-				do {
-						let jsonData = try Data(contentsOf: url)
-						let favorites = try JSONDecoder().decode([Pet].self, from: jsonData)
-						favoritePets = favorites
-				} catch {
-						print("Error loading json data.")
-				}
-		}
-		
-		func saveFavorites() {
-				/* Refactor save method to write a plist to user documents directory.
-				 Memento pattern
-				 */
-				
-				let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
-				do {
-						let savedData =	try JSONEncoder().encode(favoritePets)
-						try savedData.write(to: url)
-				} catch {
-						print("Error saving json data")
-				}
-		}
+final class PetModel: ObservableObject { // Observer pattern
+    @Published private(set) var pets: [Pet] = []
+    @Published private (set) var favoritePets: [Pet] = []
+    @Published private (set) var petFacts: [Fact] = []
+    
+    static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Lovable and lazy.")
+    
+    func waitForAnimation() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+    }
+    
+    @MainActor
+    func fetchPets() async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let petResponse: [Pet] = try await HttpClient.shared.fetch(url: url)
+        
+        self.pets = petResponse
+    }
+    
+    @MainActor
+    func fetchFacts() async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.facts
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let factsResponse: [Fact] = try await HttpClient.shared.fetch(url: url)
+        
+        self.petFacts = factsResponse
+    }
+    
+    func randomPetFact() -> String {
+        petFacts.randomElement()?.fact ?? "Cats mark you as their territory when they rub their faces and bodies against you, as they have scent glands in those areas."
+    }
+    
+    func delete(at offsets: IndexSet) {
+            offsets.forEach { i in
+                guard let petID = pets[i].id else {
+                    return
+                }
+                
+                guard let url = URL(string: Constants.API.baseUrl + Constants.API.Endpoint.pets + "/\(petID)") else {
+                    return
+                }
+                
+                Task {
+                    do {
+                        try await HttpClient.shared.delete(at: petID, url: url)
+                    } catch {
+                        print("❌ error: \(error)")
+                    }
+                }
+            }
+            
+            pets.remove(atOffsets: offsets)
+        }
+
+    
+    
+    @MainActor
+    func addPet(_ pet: Pet) async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let newPet = Pet(id: UUID(), name: pet.name, favoriteToy: pet.favoriteToy, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
+        
+        try await HttpClient.shared.sendData(to: url,
+                                             object: newPet,
+                                             httpMethod: HttpMethods.POST.rawValue)
+    }
+    
+    @MainActor
+    func updatePet(_ pet: Pet) async throws {
+        let urlString = Constants.API.baseUrl + Constants.API.Endpoint.pets
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let updatePet = Pet(id: pet.id!, name: pet.name, favoriteToy: pet.favoriteToy, age: Int(pet.age), birthday: pet.birthday, trait: pet.trait)
+        
+        try await HttpClient.shared.sendData(to: url,
+                                             object: updatePet,
+                                             httpMethod: HttpMethods.PUT.rawValue)
+    }
+    
+    
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+    
+    func loadImageFor(_ pet: Pet) -> Data {
+        let url = getDocumentsDirectory().appendingPathComponent("\(pet.name).png")
+        do {
+            let petImageData = try Data(contentsOf: url)
+            return petImageData
+            
+        } catch {
+            print("Error loading image data from disk.")
+        }
+        return (UIImage(named: "placeholder")?.pngData())!
+    }
+    
+    func saveImageFor(_ pet: Pet, image: UIImage) {
+        let documentsDirectory = getDocumentsDirectory()
+        let url = documentsDirectory.appendingPathComponent("\(pet.name).png")
+        
+        // Convert to Data
+        if let data = image.pngData() {
+            do {
+                try data.write(to: url)
+            } catch {
+                print("Unable to write image data to disk.")
+            }
+        }
+    }
+    
+    func loadPets() {
+        let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+        do {
+            let petsData = try Data(contentsOf: url)
+            let petsPlistData = try PropertyListDecoder().decode([Pet].self, from: petsData)
+            pets = petsPlistData
+        } catch {
+            print("Error loading plist data.")
+        }
+    }
+    
+    func savePets() {
+        
+        let url = getDocumentsDirectory().appendingPathComponent("Pets.plist")
+        do {
+            let savedData =	try PropertyListEncoder().encode(pets)
+            try savedData.write(to: url, options: .atomic)
+        } catch {
+            print("Error saving plist data")
+        }
+    }
+    
+    
+    func favoritesContains(_ pet: Pet) -> Bool {
+        favoritePets.contains(pet)
+    }
+    
+    func addFavorite(_ pet: Pet) {
+        objectWillChange.send()
+        favoritePets.insert(pet, at: 0)
+        saveFavorites()
+    }
+    
+    func removeFavorite(_ pet: Pet) {
+        guard let index = favoritePets.firstIndex(of: pet) else { return }
+        favoritePets.remove(at: index)
+        objectWillChange.send()
+        
+        saveFavorites()
+    }
+    
+    func loadFavorites() {
+        let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
+        do {
+            let jsonData = try Data(contentsOf: url)
+            let favorites = try JSONDecoder().decode([Pet].self, from: jsonData)
+            favoritePets = favorites
+        } catch {
+            print("Error loading json data.")
+        }
+    }
+    
+    func saveFavorites() {
+        let url = getDocumentsDirectory().appendingPathComponent("Favorites.json")
+        do {
+            let savedData =    try JSONEncoder().encode(favoritePets)
+            try savedData.write(to: url)
+        } catch {
+            print("Error saving json data")
+        }
+    }
 }

@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct PetDetailView: View {
-		let pet: Pet
+    @EnvironmentObject var model: PetModel
     
-		var body: some View {
-				NavigationView {
-						PetDetailsView(pet: pet)
-				}
+    let data: Data
+    let pet: Pet
+    
+    var body: some View {
+        NavigationView {
+            PetDetailsView(data: data, pet: pet)
+        }
     }
 }
 
 struct PetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-				PetDetailView(pet: PetModel.examplePet)
-						.environmentObject(PetModel())
+        PetDetailView(data: Data(), pet: PetModel.examplePet)
+            .environmentObject(PetModel())
     }
 }
 
