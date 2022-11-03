@@ -1,6 +1,6 @@
 //
 //  PetDairyApp.swift
-//  PetDairy
+//  PetDiary
 //
 //  Created by Jeremy Taylor on 8/19/22.
 //

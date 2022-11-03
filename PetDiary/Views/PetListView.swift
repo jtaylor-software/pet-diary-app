@@ -1,6 +1,6 @@
 //
 //  PetListView.swift
-//  PetDairy
+//  PetDiary
 //
 //  Created by Jeremy Taylor on 9/17/22.
 //

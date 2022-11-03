@@ -1,6 +1,6 @@
 //
 //  HttpClient.swift
-//  PetDairy
+//  PetDiary
 //
 //  Created by Jeremy Taylor on 10/30/22.
 //

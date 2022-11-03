@@ -1,6 +1,6 @@
 //
 //  SplashScreen.swift
-//  PetDairy
+//  PetDiary
 //
 //  Created by Jeremy Taylor on 10/8/22.
 //

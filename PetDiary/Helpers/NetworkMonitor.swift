@@ -1,6 +1,6 @@
 //
 //  NetworkMonitor.swift
-//  PetDairy
+//  PetDiary
 //
 //  Created by Jeremy Taylor on 10/26/22.
 //

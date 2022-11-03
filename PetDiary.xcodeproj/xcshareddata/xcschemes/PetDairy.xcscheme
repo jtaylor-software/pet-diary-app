@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F86D2F928AFEBAA006436AC"
                BuildableName = "Pet Dairy.app"
-               BlueprintName = "PetDairy"
-               ReferencedContainer = "container:PetDairy.xcodeproj">
+               BlueprintName = "PetDiary"
+               ReferencedContainer = "container:PetDiary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "8FDFC58529049AA300EEE409"
                BuildableName = "Pet DairyTests.xctest"
                BlueprintName = "Pet DairyTests"
-               ReferencedContainer = "container:PetDairy.xcodeproj">
+               ReferencedContainer = "container:PetDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "8F5166B62906068D0074E203"
                BuildableName = "Pet DairyUITests.xctest"
                BlueprintName = "Pet DairyUITests"
-               ReferencedContainer = "container:PetDairy.xcodeproj">
+               ReferencedContainer = "container:PetDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,8 +67,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F86D2F928AFEBAA006436AC"
             BuildableName = "Pet Dairy.app"
-            BlueprintName = "PetDairy"
-            ReferencedContainer = "container:PetDairy.xcodeproj">
+            BlueprintName = "PetDiary"
+            ReferencedContainer = "container:PetDiary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,8 +84,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8F86D2F928AFEBAA006436AC"
             BuildableName = "Pet Dairy.app"
-            BlueprintName = "PetDairy"
-            ReferencedContainer = "container:PetDairy.xcodeproj">
+            BlueprintName = "PetDiary"
+            ReferencedContainer = "container:PetDiary.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

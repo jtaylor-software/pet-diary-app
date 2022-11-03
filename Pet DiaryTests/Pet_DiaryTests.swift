@@ -1,12 +1,12 @@
 //
-//  Pet_DairyTests.swift
-//  Pet DairyTests
+//  Pet_DiaryTests.swift
+//  Pet DiaryTests
 //
 //  Created by Jeremy Taylor on 10/22/22.
 //
 
 import XCTest
-@testable import Pet_Dairy
+@testable import Pet_Diary
 
 final class Pet_DairyTests: XCTestCase {
     var expectation: XCTestExpectation!

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/jtaylor/Code/iOS Bootcamp/Pet Diary Capstone/PetDairy/PetDiary.xcodeproj">
    </FileRef>
 </Workspace>
