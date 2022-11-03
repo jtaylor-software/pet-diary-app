@@ -23,7 +23,7 @@ enum HttpError: Error {
     case badURL, badResponse, errorDecodingData, invalidURL
 }
 
-class HttpClient {
+final class HttpClient {
     private init() { }
     
     static let shared = HttpClient()

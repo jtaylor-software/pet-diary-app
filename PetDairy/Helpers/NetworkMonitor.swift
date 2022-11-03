@@ -8,7 +8,7 @@
 import SwiftUI
 import Network
 
-class NetworkMonitor: ObservableObject {
+final class NetworkMonitor: ObservableObject {
     let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "Monitor")
     

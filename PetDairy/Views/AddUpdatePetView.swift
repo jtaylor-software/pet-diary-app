@@ -65,9 +65,9 @@ struct AddUpdatePetView: View {
                 .toolbar {
                     Button {
                         if let pet = pet {
-                            addUpatePet(pet: pet)
+                            addUpdatePet(pet: pet)
                         } else {
-                            addUpatePet(pet: nil)
+                            addUpdatePet(pet: nil)
                         }
                         
                         dismiss()
@@ -109,10 +109,10 @@ struct AddUpdatePetView: View {
         selectedImage = UIImage(data: model.loadImageFor(pet) )
         
         
-        addUpatePet(pet: pet)
+        addUpdatePet(pet: pet)
     }
     
-    func addUpatePet(pet: Pet?) {
+    func addUpdatePet(pet: Pet?) {
         if var pet = pet {
             // Update Pet
             guard let selectedImage = selectedImage else { return }

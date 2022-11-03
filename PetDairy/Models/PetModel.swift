@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 
-class PetModel: ObservableObject { // Observer pattern
+final class PetModel: ObservableObject { // Observer pattern
     @Published private(set) var pets: [Pet] = []
     @Published private (set) var favoritePets: [Pet] = []
     @Published private (set) var petFacts: [Fact] = []
     
-    static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Loveable and lazy.")
+    static let examplePet = Pet(name: "Angel", favoriteToy: "String", age: 9, birthday: "8/13/2013", trait: "Lovable and lazy.")
     
     func waitForAnimation() async {
         try? await Task.sleep(nanoseconds: 3_000_000_000)
